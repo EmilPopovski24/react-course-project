@@ -1,4 +1,7 @@
 import { Routes, Route } from "react-router-dom"
+import { useState } from "react";
+import { AuthContext } from "./contexts/AuthContext";
+
 import { Catalog } from "./components/Catalog/Catalog";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
@@ -9,7 +12,16 @@ import { Register } from "./components/Register/Register";
 
 
 function App() {
+    // keep authentication data
+    const [auth, setAuth] = useState({});
+
+    const onLoginSubmit = async (data) => {
+        // e.preventDefault();
+        console.log(data);
+    }
+
   return (
+    <AuthContext.Provider value={{onLoginSubmit}}>
     <div>
         <Header />
             <main id="main">
@@ -23,6 +35,7 @@ function App() {
             </main>
         <Footer />
     </div>
+    </AuthContext.Provider>
   );
 }
 
