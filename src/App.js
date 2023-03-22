@@ -13,11 +13,13 @@ import { Register } from "./components/Register/Register";
 
 function App() {
     // keep authentication data
-    const [auth, setAuth] = useState({});
+    const [auth, setAuth] = useState([]);
 
-    const onLoginSubmit = async (data) => {
-        // e.preventDefault();
-        console.log(data);
+    const onLoginSubmit = async (e) => {
+        e.preventDefault();
+        const loginData = Object.fromEntries(new FormData(e.target))
+        // console.log(Object.fromEntries(new FormData(e.target)));
+        console.log(loginData)
     }
 
   return (
