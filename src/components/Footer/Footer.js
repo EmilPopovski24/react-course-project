@@ -1,7 +1,7 @@
 export const Footer = () => {
     return(
         <div>
-            <h1>Footer </h1>
+            <h4>All rights reserved &#169; </h4>
         </div>
     );
 }
