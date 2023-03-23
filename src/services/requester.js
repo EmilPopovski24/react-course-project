@@ -1,5 +1,5 @@
-const request = async (method, url) => {
-    const response = fetch(url, {
+export const request = async (method, url) => {
+    const response = await fetch(url, {
         method,
     });
 
@@ -7,6 +7,7 @@ const request = async (method, url) => {
         const result = await response.json();
         return result;
     } catch(error) {
+        
         return {};
     }
 };
