@@ -55,7 +55,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
-                <Route path="/catalog/id" element={<Details />} />
+                <Route path="/catalog/:id" element={<Details />} />
                 <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
