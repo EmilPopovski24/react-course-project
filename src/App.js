@@ -10,7 +10,8 @@ import { Home } from "./components/Home/Home"
 import { Login } from "./components/Login/Login";
 import { Logout } from "./components/Logout/Logout";
 import { Register } from "./components/Register/Register";
-import { AddMovie } from "./components/AddMovie/AddMovie"
+import { AddMovie } from "./components/AddMovie/AddMovie";
+import { Details } from "./components/Details/Details";
 
 
 function App() {
@@ -27,6 +28,14 @@ function App() {
                 setMovies(result)
             })
     }, []);
+
+    const onCreateMovieSubmit = async (data) => {
+        // console.log(data);
+        const newMovie = await movieService.create(data);
+        setMovies(state => [...state, newMovie]);
+        // !!! to check how to use navigate
+        // navigate('/catalog');
+    }
 
     const onLoginSubmit = async (e) => {
         e.preventDefault();
@@ -45,8 +54,9 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/catalog" element={<Catalog />} />
-                <Route path="/addmovie" element={<AddMovie />} />
+                <Route path="/catalog" element={<Catalog movies={movies} />} />
+                <Route path="/catalog/id" element={<Details />} />
+                <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
             </main>

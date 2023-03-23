@@ -1,29 +1,49 @@
 import styles from "../AddMovie/AddMovie.module.css"
+import { useState } from "react";
 
-export const AddMovie = () => {
+export const AddMovie = ({
+    onCreateMovieSubmit,
+}) => { const [values, setValues] = useState({
+    title:'',
+    year:'',
+    genre:'',
+    director:'',
+    coverUrl:'',
+    summary:'',
+});
+
+    const onChangeHandler = (e) => {
+        setValues(state => ({...state, [e.target.name]: e.target.value}))
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        onCreateMovieSubmit(values);
+    };
+
     return (
         <section id="addMovieSection">
-        <form id="addMovieForm">
+        <form id="addMovieForm" onSubmit={onSubmit}>
             <div className="container">
 
                 <h3>Add a Movie</h3>
-                <label htmlFor="addmoviename" className="form-label">Movie Title:</label>
-                <input type="addmoviename" name ="addmoviename" className="form-control" id="addmoviename" aria-describedby="emailHelp" />
+                <label htmlFor="title" className="form-label">Movie Title:</label>
+                <input value={values.title} onChange={onChangeHandler} type="addmoviename" name ="title" className="form-control" id="title" aria-describedby="emailHelp" />
             
-                <label htmlFor="addyer" className="form-label">Year:</label>
-                <input type="addyear" name="addyear" className="form-control" id="addyear" aria-describedby="emailHelp" />
+                <label htmlFor="year" className="form-label">Year:</label>
+                <input value={values.year} onChange={onChangeHandler} type="year" name="year" className="form-control" id="year" aria-describedby="emailHelp" />
             
-                <label htmlFor="addgenre" className="form-label">Genre:</label>
-                <input type="addgenre" name ="addgenre" className="form-control" id="addgenre" aria-describedby="emailHelp" />
+                <label htmlFor="genre" className="form-label">Genre:</label>
+                <input value={values.genre} onChange={onChangeHandler} type="genre" name ="genre" className="form-control" id="genre" aria-describedby="emailHelp" />
             
-                <label htmlFor="adddirector" className="form-label">Director:</label>
-                <input type="adddirector" name="adddirector" className="form-control" id="adddirector" aria-describedby="emailHelp" />
+                <label htmlFor="director" className="form-label">Director:</label>
+                <input value={values.director} onChange={onChangeHandler} type="director" name="director" className="form-control" id="director" aria-describedby="emailHelp" />
             
-                <label htmlFor="addcover" className="form-label">Cover URL:</label>
-                <input type="addcover" name="addcover" className="form-control" id="addcover" aria-describedby="emailHelp" />
+                <label htmlFor="coverUrl" className="form-label">Cover URL:</label>
+                <input value={values.coverUrl} onChange={onChangeHandler} type="coverUrl" name="coverUrl" className="form-control" id="coverUrl" aria-describedby="emailHelp" />
             
                 <label htmlFor="summary">Summary:</label>
-                <textarea name="summary" id="summary"></textarea>
+                <textarea value={values.summary} onChange={onChangeHandler} name="summary" id="summary"></textarea>
                 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </div>
