@@ -6,6 +6,7 @@ export const CatalogItem = ({
     year,
     genre,
     director,
+    _id,
 }) => {
     return(
         <div className="allMovies">
@@ -16,7 +17,7 @@ export const CatalogItem = ({
                     <p className="card-text">{director}</p>
                     <p className="card-text">{genre}</p>
                     <p className="card-text">{year}</p>
-                    <Link to="#" className="details-button">Details</Link>
+                    <Link to={`/catalog/${_id}`} className="details-button">Details</Link>
                 </div>
             </div>
         </div> 

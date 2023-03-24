@@ -10,8 +10,15 @@ export const getAllMovies = async () => {
     return movies
 }
 
+export const getOneMovie = async (movieId) => {
+    const result = await request.get(`${baseUrl}/${movieId}`);
+    console.log(result);
+    return result;
+}
+
 export const create = async (movieData) => {
     const res = await request.post(baseUrl, movieData);
     console.log(res);
     return res;
 }
+

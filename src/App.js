@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 import * as movieService from "./services/movieService";
@@ -20,7 +20,7 @@ function App() {
     //keep movies data
     const [movies, setMovies] = useState([]);
     //
-
+    const navigator = useNavigate();
     useEffect(() => {
         movieService.getAllMovies()
             .then(result => {
@@ -33,8 +33,8 @@ function App() {
         // console.log(data);
         const newMovie = await movieService.create(data);
         setMovies(state => [...state, newMovie]);
-        // !!! to check how to use navigate
-        // navigate('/catalog');
+        
+        navigator('/catalog');
     }
 
     const onLoginSubmit = async (e) => {
@@ -55,7 +55,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
-                <Route path="/catalog/:id" element={<Details />} />
+                <Route path="/catalog/:movieId" element={<Details />} />
                 <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
