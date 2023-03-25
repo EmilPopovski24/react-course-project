@@ -13,12 +13,17 @@ const options = {};
     }
 
     const response = await fetch(url, options);
-
+    
+    if(!response.ok) {
+        const result = await response.json();
+        throw result;
+        
+    }
     try{
         const result = await response.json();
+        // console.log(result)
         return result;
     } catch(error) {
-        
         return {};
     }
 };
