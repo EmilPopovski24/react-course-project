@@ -9,27 +9,30 @@ export const Details = () => {
     const [movie, setMovie] = useState({});
     const [username, setUsername] = useState("");
     const [comment, setComment] = useState("");
-    // const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState([]);
 
     useEffect(()=> {
         movieService.getOneMovie(movieId)
             .then(result => {
                 setMovie(result);
-                // return commentService.getAll(movieId)
+                return commentService.getAll(movieId)
             } )
-            // .then(result => {
-            //     setComments(result)
-            // })
+            .then(result => {
+                setComments(result)
+            })
     }, [movieId]);
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
 
-        await commentService.addComment(movieId, {
+        await commentService(
             username, 
-            comment
-        })
+            comment, 
+            movieId
+        )
     };
+
+    // console.log(comments)
     // setUsername("");
     // setComment("");
 
@@ -63,15 +66,13 @@ export const Details = () => {
                     </form>
                 </article>
                 <div className="comments-details">
-                {/* {comments.length === 0 ? 
-                        <h4>No comments</h4> : */}
                     <h4>Comments:</h4>
                     <ul className="comments-ul" >                      
-                        {movie.comments && Object.values(movie.comments).map( x => (
+                        {/* {comments.map( x => (
                         <li key={x._id} className="comment">
                             <p>{x.username}: {x.comment}</p>
                         </li>
-                        ))}
+                        ))} */}
                     </ul>
                 </div>
             </div>

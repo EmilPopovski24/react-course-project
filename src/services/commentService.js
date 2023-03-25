@@ -16,8 +16,8 @@ export const getAll = async(movieId) => {
     return comments;
 }
 
-export const addComment = async(movieId, data) => {
-    const result = await request.post(`${commentsUrl}/${movieId}/comments`, data);
+// export const addComment = async(movieId, data) => {
+//     const result = await request.post(`${commentsUrl}/${movieId}/comments`, data);
 
-    return result;
-}
+//     return result;
+// }

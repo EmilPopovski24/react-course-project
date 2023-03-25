@@ -4,13 +4,13 @@ import { useForm } from "../../hooks/useForm"
 
 const Loginkeys = {
     Email: 'email',
-    Password: 'password'
+    Password: 'password', 
 };
 
 export const Login = () => {
     const { onLoginSubmit } = useContext(AuthContext);
 
-    const { values, changeHandler } = useForm({
+    const { values, changeHandler, onSubmitfunc } = useForm({
         [Loginkeys.Email]: "",
         [Loginkeys.Password]: "",
     }, onLoginSubmit)
@@ -37,7 +37,7 @@ export const Login = () => {
 
 
         <section id="login-page" className="auth">
-            <form id="login" onSubmit={onLoginSubmit} style={{width:"30%", margin: "80px auto"}} >
+            <form id="login" onSubmit={onSubmitfunc} method="POST" style={{width:"40%", margin: "80px auto"}} >
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input name={Loginkeys.Email} type="email" className="form-control" id="email" value={values[Loginkeys.Email]} onChange ={changeHandler} aria-describedby="emailHelp" />
@@ -46,7 +46,7 @@ export const Login = () => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input name={Loginkeys.Password} type="password" className="form-control" id="password" value={values[Loginkeys.Password]} onChange ={changeHandler}/>
                 </div>      
-                <button style={{background:"green", border:"none"}} type="submit" className="btn btn-primary">Submit</button>
+                <button style={{background:"green", border:"none"}} type="submit" className="btn btn-primary">Login</button>
             </form>
         </section>
     )
