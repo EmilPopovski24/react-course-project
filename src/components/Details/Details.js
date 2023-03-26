@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as movieService from "../../services/movieService"
-import  styles  from "../Details/Details.module.css";
+// import  styles  from "../Details/Details.module.css";
 import * as commentService from "../../services/commentService";
 
 export const Details = () => {
@@ -14,28 +14,34 @@ export const Details = () => {
     useEffect(()=> {
         movieService.getOneMovie(movieId)
             .then(result => {
+                // console.log(result)
                 setMovie(result);
-                return commentService.getAll(movieId)
-            } )
+            return commentService.getAllComments(movieId)
+            })
             .then(result => {
                 setComments(result)
-            })
+                
+            });
     }, [movieId]);
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
 
-        await commentService(
+        await commentService.create({
             username, 
             comment, 
-            movieId
-        )
+            movieId,
+        })
+
+        setUsername("");
+        setComment("");
     };
 
-    // console.log(comments)
-    // setUsername("");
-    // setComment("");
+    
 
+    // console.log(comments)
+   
+ 
     const onUsernameChange = (e) => {
         setUsername(e.target.value)
     }
@@ -58,23 +64,26 @@ export const Details = () => {
                     <p id="text">{movie.summary}</p>
                 </div>
                 <article className="create-comment">
-                    <label>Add your comment:</label>
+                    <h4>Add your comment:</h4>
                     <form className="form-comment" onSubmit={onCommentSubmit}>
                         <input type="text" name="username" value={username} onChange={onUsernameChange} />
                         <textarea name ="comment" placeholder="Your comment..." value={comment} onChange={onCommentChange}></textarea>
                         <button style={{background:"green", border:"none" }} type="submit" className="btn btn-primary">Publish</button>
                     </form>
-                </article>
                 <div className="comments-details">
                     <h4>Comments:</h4>
                     <ul className="comments-ul" >                      
-                        {/* {comments.map( x => (
+                        {comments.map(x => (
                         <li key={x._id} className="comment">
                             <p>{x.username}: {x.comment}</p>
                         </li>
-                        ))} */}
+                        ))}
                     </ul>
+                    {comments.length === 0 && (
+                        <h2>No comments</h2>
+                    )} 
                 </div>
+                </article>
             </div>
          </section>
     )

@@ -12,13 +12,20 @@ export const getAllMovies = async () => {
 
 export const getOneMovie = async (movieId) => {
     const result = await request.get(`${baseUrl}/${movieId}`);
-    console.log(result);
+    // console.log(result);
     return result;
 }
 
 export const create = async (movieData) => {
     const res = await request.post(baseUrl, movieData);
-    console.log(res);
+    // console.log(res);
     return res;
+}
+
+export const addComment = async(data, movieId) => {
+    const newUrl = `${baseUrl}/${movieId}/comments`
+    const result = await request.post(newUrl, data);
+
+    return result
 }
 

@@ -45,6 +45,7 @@ function App() {
         navigator("/catalog")
     } catch(error) {
         console.log("Incorrect login details")
+        alert("Incorrect login details")
     }    
         // e.preventDefault();
         // const loginData = Object.fromEntries(new FormData(e.target));
