@@ -1,8 +1,9 @@
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { AuthContext } from "./contexts/AuthContext";
-import * as movieService from "./services/movieService";
-import * as authenticationService from "./services/authenticationService";
+import { movieServiceFactory } from "./services/movieService";
+import { authServiceFactory } from "./services/authenticationService";
+// import { useService } from "./hooks/useService";
 
 import { Catalog } from "./components/Catalog/Catalog";
 import { Footer } from "./components/Footer/Footer";
@@ -13,6 +14,7 @@ import { Logout } from "./components/Logout/Logout";
 import { Register } from "./components/Register/Register";
 import { AddMovie } from "./components/AddMovie/AddMovie";
 import { Details } from "./components/Details/Details";
+import { EditMovie } from "./components/EditMovie/EditMovie";
 
 
 function App() {
@@ -21,26 +23,32 @@ function App() {
     //keep movies data
     const [movies, setMovies] = useState([]);
     //
+    const movieService = movieServiceFactory(auth.accessToken);
+    const authService = authServiceFactory(auth.accessToken);
     const navigator = useNavigate();
+    
+
     useEffect(() => {
+        
         movieService.getAllMovies()
             .then(result => {
                 // console.log(result);
                 setMovies(result)
             })
-    }, []);
+    },
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+       []);
 
-    const onCreateMovieSubmit = async (data) => {
+    const onCreateMovieSubmit = async(data) => {
         // console.log(data);
-        const newMovie = await movieService.create(data);
+        const newMovie = await movieService.createMovie(data);
         setMovies(state => [...state, newMovie]);
-        
         navigator('/catalog');
     }
 
     const onLoginSubmit = async(data)=> {
        try {
-        const result = await authenticationService.login(data);
+        const result = await authService.login(data);
         setAuth(result)
         navigator("/catalog")
     } catch(error) {
@@ -59,7 +67,7 @@ function App() {
     // to think about validation of password/confirm-password 
 
         try {
-            const result = await authenticationService.register(data);
+            const result = await authService.register(data);
             setAuth(result)
             navigator("/")
         } catch(error) {
@@ -67,8 +75,14 @@ function App() {
         }    
     }
 
+    const onEditMovieSubmit = async (values) => {
+        const result = await movieService.edit(values._id, values);
+        setMovies(oldstate => oldstate.map(x => x._id === values._id ? result : x))
+        navigator(`/catalog/${values._id}`);
+    }
+
     const onLogout = async () => {
-        authenticationService.logout();
+        authService.logout();
         setAuth({});
     }
 
@@ -77,12 +91,10 @@ function App() {
         onRegisterSubmit,
         onLogout,
         userId: auth._id,
-        userToken: auth.accessToken,
+        token: auth.accessToken,
         userEmail: auth.email,
         isAuthenticated: !!auth.accessToken,
     };
-
-    
 
   return (
     <AuthContext.Provider value={loginContext}>
@@ -94,8 +106,9 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
-                <Route path="/catalog/:movieId" element={<Details />} />
+                <Route path='/catalog/:movieId' element={<Details />} />
                 <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
+                <Route path="/catalog/movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
             </main>
