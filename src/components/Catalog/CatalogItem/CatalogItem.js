@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { useContext } from "react";
 
 export const CatalogItem = ({
     title,
@@ -8,6 +10,8 @@ export const CatalogItem = ({
     director,
     _id,
 }) => {
+    const { isAuthenticated } = useContext(AuthContext);
+
     return(
         <div className="allMovies">
                 <div className="card" style={{width: "18rem"}}>
@@ -17,7 +21,7 @@ export const CatalogItem = ({
                     <p className="card-text">{director}</p>
                     <p className="card-text">{genre}</p>
                     <p className="card-text">{year}</p>
-                    <Link to={`/catalog/${_id}`} className="details-button">Details</Link>
+                    {isAuthenticated && (<Link to={`/catalog/${_id}`} className="details-button">Details</Link>)}
                 </div>
             </div>
         </div> 

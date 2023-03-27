@@ -1,47 +1,56 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import * as movieService from "../../services/movieService"
-// import  styles  from "../Details/Details.module.css";
-import * as commentService from "../../services/commentService";
+import "./Details.module.css";
+import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { movieServiceFactory } from "../../services/movieService"
+
+import { commentServiceFactory } from "../../services/commentService";
+import { useService} from "../../hooks/useService";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const Details = () => {
+    const { userId } = useContext(AuthContext);
     const { movieId } = useParams();
+    // console.log(movieId)
     const [movie, setMovie] = useState({});
     const [username, setUsername] = useState("");
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState([]);
+    const movieService = useService(movieServiceFactory);
+    // console.log(movieService)
+    const commentService = useService(commentServiceFactory);
+    // console.log(commentService);
+    const navigator = useNavigate();
 
     useEffect(()=> {
         movieService.getOneMovie(movieId)
             .then(result => {
-                // console.log(result)
-                setMovie(result);
-            return commentService.getAllComments(movieId)
-            })
-            .then(result => {
-                setComments(result)
-                
-            });
-    }, [movieId]);
+                setMovie(result); 
+                return commentService.getAllComments(movieId)
+        })
+        .then(result =>{
+            setComments(result)
+        });
+    },[movieId]);
+
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
 
-        await commentService.create({
+        const result = await commentService.createComment( {
+            movieId,
             username, 
             comment, 
-            movieId,
-        })
 
+        })
+        setMovie(state => ({...state, comments: {...state.comments, [result._id]: result}}));
         setUsername("");
         setComment("");
+        
     };
 
-    
+    const isOwner = movie._ownerId === userId;
 
-    // console.log(comments)
-   
- 
     const onUsernameChange = (e) => {
         setUsername(e.target.value)
     }
@@ -49,6 +58,11 @@ export const Details = () => {
     const onCommentChange = (e) => {
         setComment(e.target.value)
     }
+
+    const onDeletefunc = async () => {
+        await movieService.deleteMovie(movie._id);
+        navigator('/catalog');
+    };
 
     return (
          <section className="styles.movie-details">
@@ -66,25 +80,29 @@ export const Details = () => {
                 <article className="create-comment">
                     <h4>Add your comment:</h4>
                     <form className="form-comment" onSubmit={onCommentSubmit}>
-                        <input type="text" name="username" value={username} onChange={onUsernameChange} />
+                        <input type="text" name="username" placeholder="Your name..." value={username} onChange={onUsernameChange} />
                         <textarea name ="comment" placeholder="Your comment..." value={comment} onChange={onCommentChange}></textarea>
                         <button style={{background:"green", border:"none" }} type="submit" className="btn btn-primary">Publish</button>
-                    </form>
-                <div className="comments-details">
-                    <h4>Comments:</h4>
+                    </form>                  
                     <ul className="comments-ul" >                      
-                        {comments.map(x => (
-                        <li key={x._id} className="comment">
-                            <p>{x.username}: {x.comment}</p>
-                        </li>
-                        ))}
-                    </ul>
-                    {comments.length === 0 && (
-                        <h2>No comments</h2>
-                    )} 
-                </div>
+                    {comments.length === 0 ? 
+                        <h2>No comments</h2> :
+                        <div className="comments">
+                            <h4>Comments:</h4>
+                            {comments.map(x => (
+                            <li key={x._id} className="comment">
+                                <p>{x.username}: {x.comment}</p>
+                            </li> ))}
+                        </div>
+                        }
+                        </ul>  
                 </article>
             </div>
+            {isOwner && (<div className="editdelete">
+            <Link to={`/catalog/${movieId}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
+            <button style={{background:"green", border:"none" }} type="button" className="btn btn-primary" onClick={onDeletefunc}>Delete</button>
+            </div>
+            )}
          </section>
     )
 }

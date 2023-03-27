@@ -1,9 +1,10 @@
-import styles from "../Footer/Footer.module.css"
+import "./Footer.module.css";
 
 export const Footer = () => {
     return(
         <div>
-            <h4 id="footer">All rights reserved &#169; </h4>
+            <h4 id="footer">All rights reserved &#169; 2023
+             </h4>
         </div>
     );
 }

@@ -1,33 +1,39 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export const AddMovie = ({
-    onCreateMovieSubmit,
-}) => { const [values, setValues] = useState({
-    title:'',
-    year:'',
-    genre:'',
-    director:'',
-    coverUrl:'',
-    summary:'',
-});
+import { useForm } from "../../hooks/useForm";
+import { useService } from "../../hooks/useService";
+import { movieServiceFactory } from "../../services/movieService";
 
-const onSubmitfunc = (e) => {
-    e.preventDefault();
-    onCreateMovieSubmit(values);
+export const EditMovie = ({
+    onEditMovieSubmit,
+}) => {
+        const { movieId } = useParams();
+        const movieService = useService(movieServiceFactory);
+        const {  changeValues, values, changeHandler, onEditSubmit, } = useForm({
+            _id: '',
+            title:'',
+            year:'',
+            genre:'',
+            director:'',
+            coverUrl:'',
+            summary:'',
+        }, onEditMovieSubmit);
     
-}
-
-const changeHandler = (e) => {
-    setValues(state => ({...state, [e.target.name]: e.target.value}));
-} 
-
-
+        useEffect(() => {
+            movieService.getOneMovie(movieId)
+                .then(result => {
+                    console.log(result)
+                    changeValues(result);
+                });
+        }, [movieId]);
+    
     return (
-        <section id="addMovieSection">
-        <form id="addMovieForm" onSubmit={onSubmitfunc} method="POST" >
+        <section id="editMovieSection">
+        <form id="editMovieForm" onSubmit={onEditSubmit} method="POST" >
             <div className="container">
 
-                <h3>Add a Movie</h3>
+                <h3>Edit Movie Details</h3>
                 <label htmlFor="title" className="form-label">Movie Title:</label>
                 <input value={values.title} onChange={changeHandler} type="addmoviename" name ="title" className="form-control" id="title" aria-describedby="emailHelp" />
             
@@ -46,10 +52,11 @@ const changeHandler = (e) => {
                 <label htmlFor="summary">Summary:</label>
                 <textarea value={values.summary} onChange={changeHandler} name="summary" id="summary"></textarea>
                 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Confirm changes</button>
             </div>
             
         </form>
         </section>
     )
-};
+    
+}
