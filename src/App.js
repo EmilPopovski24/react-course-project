@@ -22,22 +22,17 @@ function App() {
     const [auth, setAuth] = useState({});
     //keep movies data
     const [movies, setMovies] = useState([]);
-    //
     const movieService = movieServiceFactory(auth.accessToken);
     const authService = authServiceFactory(auth.accessToken);
     const navigator = useNavigate();
     
 
     useEffect(() => {
-        
         movieService.getAllMovies()
             .then(result => {
-                // console.log(result);
                 setMovies(result)
             })
-    },
-       // eslint-disable-next-line react-hooks/exhaustive-deps
-       []);
+    },[]);
 
     const onCreateMovieSubmit = async(data) => {
         // console.log(data);
@@ -48,23 +43,25 @@ function App() {
 
     const onLoginSubmit = async(data)=> {
        try {
-        const result = await authService.login(data);
-        setAuth(result)
-        navigator("/catalog")
-    } catch(error) {
-        console.log("Incorrect login details")
-        alert("Incorrect login details")
-    }    
-        // e.preventDefault();
-        // const loginData = Object.fromEntries(new FormData(e.target));
-        // console.log(loginData)
-        // console.log(data);
-        // console.log(Object.fromEntries(new FormData(e.target)));
-        // console.log(data)
+            const result = await authService.login(data);
+            setAuth(result)
+            navigator("/catalog")
+        } catch(error) {
+            console.log("Incorrect login details")
+            alert("Incorrect login details")
+        }    
     };
 
     const onRegisterSubmit = async (data) => {
-    // to think about validation of password/confirm-password 
+        if (data["confirm-password"] !== data.password) {
+            alert("Passwords do not match")
+            return {};
+        
+        }
+        // const { confirmPassword, ...registerData } = values;
+        // if (confirmPassword !== registerData.password) {
+        //     return;
+        // }
 
         try {
             const result = await authService.register(data);

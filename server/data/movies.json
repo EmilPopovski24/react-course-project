@@ -1,0 +1,28 @@
+{ 
+movies :[
+{
+    "title":"Gladiator",
+    "year": 2000,
+    "genre": "Action, Adventure, Drama",
+    "director": "Ridley Scott",
+    "coverUrl":"https://qph.cf2.quoracdn.net/main-qimg-169c722cdb8a9098353e08a4665bb7bc-lq",
+    "summary": "In 180 AD, Hispano-Roman General Maximus Decimus Meridius intends to return home after he leads the Roman army to victory against the Germanic tribes near Vindobona on the Limes Germanicus. Emperor Marcus Aurelius tells Maximus that his own son, Commodus, is unfit to rule and that he wishes Maximus to succeed him, as regent, to help save Rome from corruption and restore the republic. When told of this, Commodus privately murders his father."
+
+},
+
+{
+"title":"Pearl Harbor",
+    "year": 2001,
+    "genre": "Romantic, Drama",
+    "director": "Michael Bay",
+    "coverUrl":"https://2.bp.blogspot.com/-x9lmK8NVXpg/W14yD3gD-jI/AAAAAAAAaqo/fB2TlE7hlikikUrLan5JWZFnABDMKLEaQCLcBGAs/s1600/pearl-harbor-movie-poster.jpg",
+    "summary": "In January 1941, with World War II raging, Danny and Rafe are both first lieutenants under the command of Major Jimmy Doolittle. Doolittle informs Rafe that he has been accepted into the Eagle Squadron (an RAF outfit for American pilots during the Battle of Britain). A nurse named Evelyn Johnson passes Rafe's medical exam despite his dyslexia, and the two strike up a relationship. Four weeks later, Rafe and Evelyn, now deeply in love, enjoy an evening of dancing at a nightclub and later a jaunt in the New York harbor in a borrowed police boat. Rafe shocks Evelyn by saying that he has joined the Eagle Squadron and is leaving the next day. During a mission to intercept a Luftwaffe bombing raid, Rafe is shot down over the English Channel and is presumed killed in action. Danny and Evelyn mourn Rafe's death together, which spurs a romance between the two."
+},
+{
+"title":"V For Vendetta",
+    "year": 2005,
+    "genre": "Action, Adventure",
+    "director": "James McTeigue",
+    "coverUrl":"https://upload.wikimedia.org/wikipedia/en/9/9f/Vforvendettamov.jpg",
+    "summary": "In the near future, Britain is ruled by the Norsefire political party, a fascist and authoritarian regime led by High Chancellor Adam Sutler, which controls the populace through propaganda, and imprisons or executes those deemed undesirable, including immigrants, homosexuals, and people of alternative religions."
+}
