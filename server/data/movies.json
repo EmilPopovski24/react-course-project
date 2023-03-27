@@ -1,6 +1,6 @@
 { 
-movies :[
-{
+    "movies": [
+    {
     "title":"Gladiator",
     "year": 2000,
     "genre": "Action, Adventure, Drama",
@@ -25,4 +25,6 @@ movies :[
     "director": "James McTeigue",
     "coverUrl":"https://upload.wikimedia.org/wikipedia/en/9/9f/Vforvendettamov.jpg",
     "summary": "In the near future, Britain is ruled by the Norsefire political party, a fascist and authoritarian regime led by High Chancellor Adam Sutler, which controls the populace through propaganda, and imprisons or executes those deemed undesirable, including immigrants, homosexuals, and people of alternative religions."
+}
+    ]
 }
