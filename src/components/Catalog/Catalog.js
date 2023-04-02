@@ -1,4 +1,4 @@
-import "./Catalog.module.css";
+// import "./Catalog.module.css";
 import { CatalogItem } from "./CatalogItem/CatalogItem";
 
 export const Catalog = ({

@@ -10,11 +10,11 @@ export const commentServiceFactory = (token) => {
     
         // console.log(data)
         // console.log("-------")
-        // console.log(result)
+        console.log(result)
         return result
     }
     
-    const getAllComments = async(movieId) => {
+    const getAllComments = async  (movieId) => {
         const query = encodeURIComponent(`movieId="${movieId}"`)
         // console.log(query)
         const result = await request.get(`${baseUrl}?where=${query}`)

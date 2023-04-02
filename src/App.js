@@ -54,7 +54,7 @@ function App() {
 
     const onRegisterSubmit = async (data) => {
         if (data["confirm-password"] !== data.password) {
-            alert("Passwords do not match")
+            alert("Both passwords do not match")
             return {};
         
         }

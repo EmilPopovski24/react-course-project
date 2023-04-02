@@ -15,7 +15,7 @@ export const Details = () => {
     const [movie, setMovie] = useState({});
     const [username, setUsername] = useState("");
     const [comment, setComment] = useState("");
-    const [comments, setComments] = useState([]);
+    // const [comments, setComments] = useState([]);
     const movieService = useService(movieServiceFactory);
     // console.log(movieService)
     const commentService = useService(commentServiceFactory);
@@ -25,23 +25,22 @@ export const Details = () => {
     useEffect(()=> {
         movieService.getOneMovie(movieId)
             .then(result => {
+                // console.log(result)
                 setMovie(result); 
-                return commentService.getAllComments(movieId)
+                // return commentService.getAllComments(movieId)
         })
-        .then(result =>{
-            setComments(result)
-        });
+        // .then(result =>{
+        //     setComments(result)
+        // });
     },[movieId]);
 
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
 
-        const result = await commentService.createComment( {
-            movieId,
+        const result = await movieService.addComment( movieId,{
             username, 
             comment, 
-
         })
         setMovie(state => ({...state, comments: {...state.comments, [result._id]: result}}));
         setUsername("");
@@ -85,19 +84,18 @@ export const Details = () => {
                         <button style={{background:"green", border:"none" }} type="submit" className="btn btn-primary">Publish</button>
                     </form>                  
                     <ul className="comments-ul" >                      
-                    {comments.length === 0 ? 
-                        <h2>No comments</h2> :
+                    {/* {movie.comments.length === 0 ? 
+                        <h2>No comments</h2> : */}
                         <div className="comments">
                             <h4>Comments:</h4>
-                            {comments.map(x => (
+                            {movie.comments && Object.values(movie.comments).map(x => (
                             <li key={x._id} className="comment">
                                 <p>{x.username}: {x.comment}</p>
                             </li> ))}
                         </div>
-                        }
                         </ul>  
                 </article>
-            </div>
+            </div> 
             {isOwner && (<div className="editdelete">
             <Link to={`/catalog/${movieId}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
             <button style={{background:"green", border:"none" }} type="button" className="btn btn-primary" onClick={onDeletefunc}>Delete</button>

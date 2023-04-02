@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = "http://localhost:3030/data/movies"
+const baseUrl = "http://localhost:3030/jsonstore/movies"
 
 export const movieServiceFactory = (token) => {
     const request = requestFactory(token);
@@ -23,6 +23,7 @@ export const movieServiceFactory = (token) => {
     
     const getOneMovie = async (movieId) => {
         const result = await request.get(`${baseUrl}/${movieId}`);
+        // console.log(`${baseUrl}/${movieId}`)
         // console.log(result);
         return result;
     }
@@ -33,7 +34,9 @@ export const movieServiceFactory = (token) => {
         return res;
     }
     
-    const addComment = async(data, movieId) => {
+    const addComment = async(movieId, data) => {
+        // console.log(movieId)
+        // console.log(data)
         const newUrl = `${baseUrl}/${movieId}/comments`
         // console.log(newUrl)
         const result = await request.post(newUrl, data);
