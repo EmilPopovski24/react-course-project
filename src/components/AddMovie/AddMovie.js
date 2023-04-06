@@ -1,25 +1,26 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { useForm } from "../../hooks/useForm"
 
 export const AddMovie = ({
     onCreateMovieSubmit,
-}) => { const [values, setValues] = useState({
+}) => { const {values, changeHandler, onSubmitfunc } = useForm({
     title:'',
     year:'',
     genre:'',
     director:'',
     coverUrl:'',
     summary:'',
-});
+}, onCreateMovieSubmit);
 
-const onSubmitfunc = (e) => {
-    e.preventDefault();
-    onCreateMovieSubmit(values);
+// const onSubmitfunc = (e) => {
+//     e.preventDefault();
+//     onCreateMovieSubmit(values);
     
-}
+// }
 
-const changeHandler = (e) => {
-    setValues(state => ({...state, [e.target.name]: e.target.value}));
-} 
+// const changeHandler = (e) => {
+//     setValues(state => ({...state, [e.target.name]: e.target.value}));
+// } 
 
 
     return (

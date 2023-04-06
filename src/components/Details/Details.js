@@ -9,6 +9,7 @@ import { useService} from "../../hooks/useService";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export const Details = () => {
+    
     const { userId } = useContext(AuthContext);
     const { movieId } = useParams();
     // console.log(movieId)
@@ -45,7 +46,7 @@ export const Details = () => {
         setMovie(state => ({...state, comments: {...state.comments, [result._id]: result}}));
         setUsername("");
         setComment("");
-        
+        console.log(result)
     };
 
     const isOwner = movie._ownerId === userId;
@@ -97,7 +98,7 @@ export const Details = () => {
                 </article>
             </div> 
             {isOwner && (<div className="editdelete">
-            <Link to={`/catalog/${movieId}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
+            <Link to={`/catalog/${movie._id}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
             <button style={{background:"green", border:"none" }} type="button" className="btn btn-primary" onClick={onDeletefunc}>Delete</button>
             </div>
             )}
