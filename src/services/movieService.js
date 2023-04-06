@@ -1,12 +1,12 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = "http://localhost:3030/jsonstore/movies"
+const baseUrl = "http://localhost:3030/data/movies";
 
 export const movieServiceFactory = (token) => {
     const request = requestFactory(token);
 
-    const editMovie = (movieId, movieData) => {
-        const result = request.put(`${baseUrl}/${movieId}`, movieData)
+    const editMovie = (movieId, data) => {
+        const result = request.put(`${baseUrl}/${movieId}`, data)
         return result;
     }
 

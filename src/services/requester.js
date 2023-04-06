@@ -16,7 +16,7 @@ const options = {};
         options.headers = {
             ...options.headers,
             'X-Authorization': token,
-        }
+        };
     }
 
     const response = await fetch(url, options);

@@ -73,12 +73,14 @@ function App() {
     }
 
     const onEditMovieSubmit = async (values) => {
-        const result = await movieService.edit(values._id, values);
+        const result = await movieService.editMovie(values._id, values);
+        console.log(`onEdit - ${result}`)
         setMovies(oldstate => oldstate.map(x => x._id === values._id ? result : x))
-        navigator(`/catalog/${values._id}`);
+        navigator(`/catalog`);
+        return result
     }
 
-    const onLogout = async () => {
+    const onLogout = () => {
         authService.logout();
         setAuth({});
     }
@@ -105,7 +107,7 @@ function App() {
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
                 <Route path='/catalog/:movieId' element={<Details />} />
                 <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
-                <Route path="/catalog/movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
+                <Route path="/catalog/:movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
             </main>

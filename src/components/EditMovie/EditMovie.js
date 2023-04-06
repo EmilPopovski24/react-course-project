@@ -10,7 +10,7 @@ export const EditMovie = ({
 }) => {
         const { movieId } = useParams();
         const movieService = useService(movieServiceFactory);
-        const {  changeValues, values, changeHandler, onEditSubmit, } = useForm({
+        const {  changeValues, values, changeHandler, onSubmitfunc } = useForm({
             _id: '',
             title:'',
             year:'',
@@ -23,14 +23,14 @@ export const EditMovie = ({
         useEffect(() => {
             movieService.getOneMovie(movieId)
                 .then(result => {
-                    console.log(result)
                     changeValues(result);
+                    console.log(result)
                 });
         }, [movieId]);
     
     return (
         <section id="editMovieSection">
-        <form id="editMovieForm" onSubmit={onEditSubmit} method="POST" >
+        <form id="editMovieForm" onSubmit={onSubmitfunc} >
             <div className="container">
 
                 <h3>Edit Movie Details</h3>

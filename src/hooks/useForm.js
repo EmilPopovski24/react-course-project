@@ -12,9 +12,15 @@ export const useForm = (initialValues, onSubmitHandler ) => {
         onSubmitHandler(values);
     }
 
+    const changeValues = (newValues) => {
+
+        setValues(newValues);
+    };
+
     return {
         values,
         changeHandler,
-        onSubmitfunc
-    }
-};
+        onSubmitfunc,
+        changeValues,
+    };
+}
