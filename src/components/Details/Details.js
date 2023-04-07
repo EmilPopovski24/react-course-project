@@ -60,8 +60,14 @@ export const Details = () => {
     }
 
     const onDeletefunc = async () => {
-        await movieService.deleteMovie(movie._id);
-        navigator('/catalog');
+        // eslint-disable-next-line no-restricted-globals
+        const result = confirm(`Are you sure you want to delete ${movie.title} from the list?`)
+        if (result) {
+            await movieService.deleteMovie(movie._id);
+            navigator('/catalog');
+        }
+        return
+        
     };
 
     return (

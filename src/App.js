@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 import { movieServiceFactory } from "./services/movieService";
 import { authServiceFactory } from "./services/authenticationService";
+import { RouteGuard } from "./components/guards/RouteGuard"
 // import { useService } from "./hooks/useService";
 
 import { Catalog } from "./components/Catalog/Catalog";
@@ -15,6 +16,7 @@ import { Register } from "./components/Register/Register";
 import { AddMovie } from "./components/AddMovie/AddMovie";
 import { Details } from "./components/Details/Details";
 import { EditMovie } from "./components/EditMovie/EditMovie";
+
 
 
 function App() {
@@ -74,7 +76,7 @@ function App() {
 
     const onEditMovieSubmit = async (values) => {
         const result = await movieService.editMovie(values._id, values);
-        console.log(`onEdit - ${result}`)
+        // console.log(`onEdit - ${result}`)
         setMovies(oldstate => oldstate.map(x => x._id === values._id ? result : x))
         navigator(`/catalog`);
         return result
@@ -105,9 +107,11 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
-                <Route path='/catalog/:movieId' element={<Details />} />
-                <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
-                <Route path="/catalog/:movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
+                <Route element ={<RouteGuard />} >
+                    <Route path='/catalog/:movieId' element={<Details />} />
+                    <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
+                    <Route path="/catalog/:movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
+                </Route>
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
             </main>
