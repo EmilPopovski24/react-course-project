@@ -38,7 +38,7 @@ body {
     margin: 10px 20px; 
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align:left   
 }
@@ -63,8 +63,12 @@ p{
 .comment {
     border:1px solid green;
     border-radius:5px;
+    background: white;
+    margin:1px;
+    width:50%;
 }
 
 .comment-text {
     text-align:left;
+    color:green;
 }
