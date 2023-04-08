@@ -5,23 +5,18 @@ import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
 import * as commmentService from "../../services/commentService"
 
-import { createComment, getAllComments } from "../../services/commentService";
+
 import { useService} from "../../hooks/useService";
-import { AuthContext, useAuthContext } from "../../contexts/AuthContext";
-// import { useForm } from "../../hooks/useForm";
+import {  useAuthContext } from "../../contexts/AuthContext";
+
 import { AddComment } from './AddComment/AddComment';
 
 export const Details = () => {
     
     const { userId, isAuthenticated } = useAuthContext();
-    
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
-    // const [username, setUsername] = useState("");
-    // const [comment, setComment] = useState("");
-    // const [comments, setComments] = useState([]);
     const movieService = useService(movieServiceFactory);
-
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -35,12 +30,7 @@ export const Details = () => {
                     comments,
                 })
             });
-        // movieService.getOneMovie(movieId)
-        //     .then(result => {
-        //         setMovie(result); 
-        // })
     },[movieId]);
-
 
     const onCommentSubmit = async (values) => {        
         const response = await commmentService.createComment(movieId, values.comment);
@@ -54,7 +44,6 @@ export const Details = () => {
 
     const isOwner = movie._ownerId === userId;
 
-
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
         const result = confirm(`Are you sure you want to delete ${movie.title} from the list?`)
@@ -62,8 +51,7 @@ export const Details = () => {
             await movieService.deleteMovie(movie._id);
             navigator('/catalog');
         }
-        return
-        
+        return  
     };
 
     return (

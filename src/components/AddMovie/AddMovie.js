@@ -12,16 +12,6 @@ export const AddMovie = ({
     summary:'',
 }, onCreateMovieSubmit);
 
-// const onSubmitfunc = (e) => {
-//     e.preventDefault();
-//     onCreateMovieSubmit(values);
-    
-// }
-
-// const changeHandler = (e) => {
-//     setValues(state => ({...state, [e.target.name]: e.target.value}));
-// } 
-
 
     return (
         <section id="addMovieSection">
