@@ -31,7 +31,10 @@ export const Navbar = () => {
                     <div id="logged-user">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <h6>Hello, {userEmail}</h6>
+                                <h6>Hello, {userEmail.split('@')[0]}</h6>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/account">My Account</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/catalog">Catalog</Link>

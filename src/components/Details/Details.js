@@ -1,63 +1,69 @@
 import "./Details.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
+import * as commmentService from "../../services/commentService"
 
-import { commentServiceFactory } from "../../services/commentService";
+import { createComment, getAllComments } from "../../services/commentService";
 import { useService} from "../../hooks/useService";
-import { AuthContext } from "../../contexts/AuthContext";
+import { AuthContext, useAuthContext } from "../../contexts/AuthContext";
+// import { useForm } from "../../hooks/useForm";
+import { AddComment } from './AddComment/AddComment';
 
 export const Details = () => {
     
-    const { userId } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useAuthContext();
+    
     const { movieId } = useParams();
-    // console.log(movieId)
     const [movie, setMovie] = useState({});
-    const [username, setUsername] = useState("");
-    const [comment, setComment] = useState("");
+    // const [username, setUsername] = useState("");
+    // const [comment, setComment] = useState("");
     // const [comments, setComments] = useState([]);
     const movieService = useService(movieServiceFactory);
-    // console.log(movieService)
-    const commentService = useService(commentServiceFactory);
-    // console.log(commentService);
+
     const navigator = useNavigate();
 
     useEffect(()=> {
+        // Promise.all([
+        //     movieService.getOneMovie(movieId),
+        //     commmentService.getAllComments(movieId)
+        // ])
+        //     .then(values => {
+        //         console.log(values)
+        //     })
         movieService.getOneMovie(movieId)
             .then(result => {
-                // console.log(result)
                 setMovie(result); 
-                // return commentService.getAllComments(movieId)
         })
-        // .then(result =>{
-        //     setComments(result)
-        // });
     },[movieId]);
 
 
-    const onCommentSubmit = async (e) => {
-        e.preventDefault();
-
-        const result = await movieService.addComment( movieId,{
-            username, 
-            comment, 
-        })
-        setMovie(state => ({...state, comments: {...state.comments, [result._id]: result}}));
-        setUsername("");
-        setComment("");
-        console.log(result)
+    const onCommentSubmit = async (values) => {
+        // console.log(values)            
+        const response = await commmentService.createComment(movieId, values.comment);
+        console.log(response)
+        // console.log(response)
+        // console.log(values)
+        // const result = await movieService.addComment( movieId,{
+        //     username, 
+        //     comment, 
+        // })
+        // setMovie(state => ({...state, comments: {...state.comments, [result._id]: result}}));
+        // setUsername("");
+        // setComment("");
+        // console.log(result)
     };
 
     const isOwner = movie._ownerId === userId;
 
-    const onUsernameChange = (e) => {
-        setUsername(e.target.value)
-    }
+    // const onUsernameChange = (e) => {
+    //     setUsername(e.target.value)
+    // }
 
-    const onCommentChange = (e) => {
-        setComment(e.target.value)
-    }
+    // const onCommentChange = (e) => {
+    //     setComment(e.target.value)
+    // }
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
@@ -82,32 +88,25 @@ export const Details = () => {
                 <h4>Summary:</h4>
                 <div id="summary-div">
                     <p id="text">{movie.summary}</p>
-                </div>
-                <article className="create-comment">
-                    <h4>Add your comment:</h4>
-                    <form className="form-comment" onSubmit={onCommentSubmit}>
-                        <input type="text" name="username" placeholder="Your name..." value={username} onChange={onUsernameChange} />
-                        <textarea name ="comment" placeholder="Your comment..." value={comment} onChange={onCommentChange}></textarea>
-                        <button style={{background:"green", border:"none" }} type="submit" className="btn btn-primary">Publish</button>
-                    </form>                  
-                    <ul className="comments-ul" >                      
-                    {/* {movie.comments.length === 0 ? 
-                        <h2>No comments</h2> : */}
-                        <div className="comments">
-                            <h4>Comments:</h4>
-                            {movie.comments && Object.values(movie.comments).map(x => (
-                            <li key={x._id} className="comment">
-                                <p>{x.username}: {x.comment}</p>
-                            </li> ))}
-                        </div>
-                        </ul>  
-                </article>
+                </div>               
             </div> 
             {isOwner && (<div className="editdelete">
             <Link to={`/catalog/${movie._id}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
             <button style={{background:"green", border:"none" }} type="button" className="btn btn-primary" onClick={onDeletefunc}>Delete</button>
             </div>
             )}
+            <ul className="comments-ul" >                      
+                    {/* {movie.comments.length === 0 ? 
+                        <h2>No comments</h2> :  */}
+                        <div className="comments">
+                            <h4>Comments:</h4>
+                            {movie.comments && Object.values(movie.comments).map(x => (
+                            <li key={x._id} className="comment">
+                                <p>{x.comment}</p>
+                            </li> ))}
+                        </div>
+                        </ul>  
+                        {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
          </section>
     )
 }

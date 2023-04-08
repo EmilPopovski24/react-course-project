@@ -34,15 +34,15 @@ export const movieServiceFactory = (token) => {
         return res;
     }
     
-    const addComment = async(movieId, data) => {
-        // console.log(movieId)
-        // console.log(data)
-        const newUrl = `${baseUrl}/${movieId}/comments`
-        // console.log(newUrl)
-        const result = await request.post(newUrl, data);
-        // console.log(result);
-        return result
-    }
+    // const addComment = async(movieId, data) => {
+    //     // console.log(movieId)
+    //     // console.log(data)
+    //     const newUrl = `${baseUrl}/${movieId}/comments`
+    //     // console.log(newUrl)
+    //     const result = await request.post(newUrl, data);
+    //     // console.log(result);
+    //     return result
+    // }
 
     return {
         deleteMovie,
@@ -50,7 +50,6 @@ export const movieServiceFactory = (token) => {
         getAllMovies,
         getOneMovie,
         createMovie,
-        addComment,
     };
 
 }

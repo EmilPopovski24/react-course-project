@@ -1,20 +1,20 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = 'http://localhost:3030/jsonstore/comments';
+const baseUrl = 'http://localhost:3030/data/comments'; 
 
-export const commentServiceFactory = (token) => {
-    const request = requestFactory(token);
+// export const commentServiceFactory = (token) => {
+const request = requestFactory();
     
-    const createComment = async (commentData) => {
-        const result = await request.post(baseUrl, commentData);
+export const createComment = async (movieId, comment) => {
+        const result = await request.post(baseUrl,{movieId, comment});
     
         // console.log(data)
         // console.log("-------")
-        console.log(result)
+        // console.log(result)
         return result
     }
     
-    const getAllComments = async  (movieId) => {
+export const getAllComments = async (movieId) => {
         const query = encodeURIComponent(`movieId="${movieId}"`)
         // console.log(query)
         const result = await request.get(`${baseUrl}?where=${query}`)
@@ -26,8 +26,8 @@ export const commentServiceFactory = (token) => {
         //  data OK
     }
 
-    return {
-        createComment,
-        getAllComments,
-    }
-}
+    // return {
+    //     createComment,
+    //     getAllComments,
+    // }
+// }

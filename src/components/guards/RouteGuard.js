@@ -1,12 +1,32 @@
-import { useAuthContext } from "../../contexts/AuthContext";
-import { Navigate, Outlet } from "react-router-dom";
+// import { Navigate, Outlet } from "react-router-dom";
 
-export const RouteGuard = () => {
-    const { isAuthenticated } = useAuthContext();
+// import { useAuthContext } from "../../contexts/AuthContext";
 
-    if (isAuthenticated === false) {
-        return <Navigate to ="/login" />
-    }
+// export const RouteGuard = ({
+//     children,
+// }) => {
+//     const { isAuthenticated } = useAuthContext();
+    
+//     if (!isAuthenticated) {
+//         return <Navigate to="/login" />;
+//     }
 
-    return <Outlet />
-}
+//     return children ? children : <Outlet />
+// };
+
+
+// import { useAuthContext } from "../../contexts/AuthContext";
+// import { Navigate, Outlet } from "react-router-dom";
+// // import { useContext } from "react";
+
+// export const RouteGuard = () => {
+//     const { isAuthenticated } = useAuthContext();
+
+//     if (!isAuthenticated) {
+//         return <Navigate to ="/catalog" />
+//     }
+   
+//         return <Outlet />
+
+    
+// }
