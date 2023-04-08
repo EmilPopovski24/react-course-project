@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
@@ -28,6 +29,11 @@ export const Register = () => {
                 </div>      
                 <button style={{background:"green", border:"none"}}type="submit" className="btn btn-primary">Register</button>
             </form>
+            <div className="loginoption">
+                <p className="loginOptionText">
+                    You alrady have a profile? ... Come on... Go to <Link to={"/login"}> Login page </Link>
+                </p>
+                </div>
         </div>
     );
 }

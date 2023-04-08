@@ -23,8 +23,7 @@ export const movieServiceFactory = (token) => {
     
     const getOneMovie = async (movieId) => {
         const result = await request.get(`${baseUrl}/${movieId}`);
-        // console.log(`${baseUrl}/${movieId}`)
-        // console.log(result);
+
         return result;
     }
     

@@ -44,34 +44,16 @@ export const Details = () => {
 
     const onCommentSubmit = async (values) => {        
         const response = await commmentService.createComment(movieId, values.comment);
-        console.log(response)
+        // console.log(response)
         //new reference for new data
         setMovie (state => ({
             ...state, 
             comments: [...state.comments, response]
-
-        }))
-       
-        // console.log(values)
-        // const result = await movieService.addComment( movieId,{
-        //     username, 
-        //     comment, 
-        // })
-        // setMovie(state => ({...state, comments: {...state.comments, [result._id]: result}}));
-        // setUsername("");
-        // setComment("");
-        // console.log(result)
+        }))     
     };
 
     const isOwner = movie._ownerId === userId;
 
-    // const onUsernameChange = (e) => {
-    //     setUsername(e.target.value)
-    // }
-
-    // const onCommentChange = (e) => {
-    //     setComment(e.target.value)
-    // }
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals

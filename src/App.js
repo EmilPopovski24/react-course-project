@@ -55,12 +55,12 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
-                {/* <Route element ={<RouteGuard />} > */}
+                <Route element ={<RouteGuard />} >
                     <Route path="/account" element={<Account />} />
                     <Route path='/catalog/:movieId' element={<Details />} />
                     <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
                     <Route path="/catalog/:movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
-                {/* </Route> */}
+                </Route>
                 <Route path="/logout" element={<Logout />} />
                 </Routes>
             </main>

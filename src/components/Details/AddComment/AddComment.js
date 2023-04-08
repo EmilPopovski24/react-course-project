@@ -18,4 +18,3 @@ export const AddComment = ({
         </article>
     )
 }
-// style={{background:"green", border:"none", color:"white" }}
