@@ -3,7 +3,6 @@ body {
 }
 .username {
     position:absolute;
-    right:30px;
+    right:100px;
     top:15px;
-
 }
