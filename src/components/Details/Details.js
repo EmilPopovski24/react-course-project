@@ -112,7 +112,7 @@ export const Details = () => {
                 {/* {movie.comments.length === 0 ? 
                     <h2>No comments</h2> :  */}
                 {/* <div className="comments"> */}
-                    <h4>Comments:</h4>
+                    <h5>Comments:</h5>
                     {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.comment}</p>
