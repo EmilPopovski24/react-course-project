@@ -1,4 +1,4 @@
-import "./Details.module.css";
+import "./Details.css";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -85,36 +85,40 @@ export const Details = () => {
     };
 
     return (
-         <section className="styles.movie-details">
-            <h3>Movie Details</h3>
-            <div id="info">
-                <img src={movie.coverUrl} alt={movie.title} />
+        <section>
+            <h3 className="details-header">Movie Details</h3> 
+         <section className="movie">         
+            <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
+            <div className="info">
                 <h1>{movie.title}</h1>
-                <h2>Director: {movie.director}</h2>
+                <h3>Director: {movie.director}</h3>
                 <h3>Genre: {movie.genre}</h3>
-                <h4>Year: {movie.year}</h4>
-                <h4>Summary:</h4>
-                <div id="summary-div">
+                <h3>Year: {movie.year}</h3>
+                <h3>Summary:</h3>
+                <div className="movie-summary">
                     <p id="text">{movie.summary}</p>
-                </div>               
-            </div> 
+                </div>                
+            </div>
+            </section> 
+            <div className="actions">
             {isOwner && (<div className="editdelete">
             <Link to={`/catalog/${movie._id}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
             <button style={{background:"green", border:"none" }} type="button" className="btn btn-primary" onClick={onDeletefunc}>Delete</button>
             </div>
             )}
+            {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
+            </div>                       
             <ul className="comments-ul" >                      
-                    {/* {movie.comments.length === 0 ? 
-                        <h2>No comments</h2> :  */}
-                        <div className="comments">
-                            <h4>Comments:</h4>
-                            {movie.comments && Object.values(movie.comments).map(x => (
-                            <li key={x._id} className="comment">
-                                <p>{x.comment}</p>
-                            </li> ))}
-                        </div>
-                        </ul>  
-                        {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
-         </section>
-    )
+                {/* {movie.comments.length === 0 ? 
+                    <h2>No comments</h2> :  */}
+                {/* <div className="comments"> */}
+                    <h4>Comments:</h4>
+                    {movie.comments && Object.values(movie.comments).map(x => (
+                    <li key={x._id} className="comment">
+                        <p className="comment-text">{x.comment}</p>
+                    </li> ))}
+                {/* </div> */}
+            </ul>  
+         </section>      
+    )      
 }
