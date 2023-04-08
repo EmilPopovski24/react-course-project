@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Моят проект представлява своеобразна социална мрежа за филми, наподобяваща филмовите клубове, в които се посочва филм за гледане и всеки от участниците оценява и коментира съответния филм. Идеята е всеки кинолюбител да се логва в собствения си акаунт и да оценява конкретно посочените филми за ревю.
+Създателят на конкретен филм може да коригира информацията за него и съответно да го изтрива.
+Всеки регистриран и логнат потребител може да коментира филма и да сподели своето мнение за него.
+
+
