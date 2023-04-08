@@ -41,7 +41,6 @@ if(!token) {
     if(serializedAuth) {
         const auth = JSON.parse(serializedAuth);
         token = auth.accessToken
-        console.log(auth.accessToken)
     }
 }
 

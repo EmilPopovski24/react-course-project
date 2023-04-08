@@ -25,24 +25,27 @@ export const Details = () => {
     const navigator = useNavigate();
 
     useEffect(()=> {
-        // Promise.all([
-        //     movieService.getOneMovie(movieId),
-        //     commmentService.getAllComments(movieId)
-        // ])
-        //     .then(values => {
-        //         console.log(values)
-        //     })
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result); 
-        })
+        Promise.all([
+            movieService.getOneMovie(movieId),
+            commmentService.getAllComments(movieId)
+        ])
+            .then(([movieData, comments]) => {
+                setMovie({
+                    ...movieData, 
+                    comments,
+                })
+            });
+        // movieService.getOneMovie(movieId)
+        //     .then(result => {
+        //         setMovie(result); 
+        // })
     },[movieId]);
 
 
-    const onCommentSubmit = async (values) => {
-        // console.log(values)            
+    const onCommentSubmit = async (values) => {        
         const response = await commmentService.createComment(movieId, values.comment);
         console.log(response)
+        // console.log(response)
         // console.log(response)
         // console.log(values)
         // const result = await movieService.addComment( movieId,{

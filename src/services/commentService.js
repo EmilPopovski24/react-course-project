@@ -7,7 +7,7 @@ const request = requestFactory();
     
 export const createComment = async (movieId, comment) => {
         const result = await request.post(baseUrl,{movieId, comment});
-    
+        
         // console.log(data)
         // console.log("-------")
         // console.log(result)
