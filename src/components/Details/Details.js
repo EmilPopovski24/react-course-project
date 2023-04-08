@@ -72,22 +72,18 @@ export const Details = () => {
             </section> 
             <div className="actions">
             {isOwner && (<div className="editdelete">
-            <Link to={`/catalog/${movie._id}/edit`} style={{background:"green", border:"none", margin:"10px", }} type="button" className="btn btn-primary">Edit</Link>
-            <button style={{background:"green", border:"none" }} type="button" className="btn btn-primary" onClick={onDeletefunc}>Delete</button>
+            <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
+            <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
             </div>
             )}
             {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
             </div>                       
             <ul className="comments-ul" >                      
-                {/* {movie.comments.length === 0 ? 
-                    <h2>No comments</h2> :  */}
-                {/* <div className="comments"> */}
                     <h5>Comments:</h5>
                     {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.comment}</p>
                     </li> ))}
-                {/* </div> */}
             </ul>  
          </section>      
     )      

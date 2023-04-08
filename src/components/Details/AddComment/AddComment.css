@@ -1,5 +1,6 @@
 .addcomment {
     margin-left:50px;
+    max-width:30%;
 }
 .comment-area {
     width:500px;
@@ -13,7 +14,11 @@
     border:none;
     border-radius:5px;
     margin:10px auto;
-    padding:5px 5px;
+    padding:5px 10px;
     display:block;
     
+}
+
+.submit-btn:hover{
+    background:blueviolet;
 }
