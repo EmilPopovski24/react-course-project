@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import "./AddMovie.css"
 import { useForm } from "../../hooks/useForm"
 
 export const AddMovie = ({
@@ -28,7 +28,7 @@ export const AddMovie = ({
         <form id="addMovieForm" onSubmit={onSubmitfunc} method="POST" >
             <div className="container">
 
-                <h3>Add a Movie</h3>
+                <h3 className="addmovie-header">Add a Movie</h3>
                 <label htmlFor="title" className="form-label">Movie Title:</label>
                 <input value={values.title} onChange={changeHandler} type="addmoviename" name ="title" className="form-control" id="title" aria-describedby="emailHelp" />
             
@@ -45,9 +45,9 @@ export const AddMovie = ({
                 <input value={values.coverUrl} onChange={changeHandler} type="coverUrl" name="coverUrl" className="form-control" id="coverUrl" aria-describedby="emailHelp" />
             
                 <label htmlFor="summary">Summary:</label>
-                <textarea value={values.summary} onChange={changeHandler} name="summary" id="summary"></textarea>
+                <textarea value={values.summary} onChange={changeHandler} className="summary" name="summary" id="summary"></textarea>
                 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn-primary">Submit</button>
             </div>
             
         </form>

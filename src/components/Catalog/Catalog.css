@@ -1,5 +1,6 @@
-h2 {
-    margin: 30px auto;
+
+.catalog-header {
+    margin: 30px ;
     text-align:center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }

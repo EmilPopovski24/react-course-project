@@ -1,3 +1,4 @@
+import "./Navbar.css"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
@@ -30,7 +31,7 @@ export const Navbar = () => {
                 {isAuthenticated && (
                     <div id="logged-user">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            <li className="nav-item username">
                                 <h6>Hello, {userEmail.split('@')[0]}</h6>
                             </li>
                             <li className="nav-item">
