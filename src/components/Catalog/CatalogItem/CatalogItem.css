@@ -1,0 +1,12 @@
+.details-button {
+    background: green;
+    color:white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border:none;
+    border-radius:5px;
+}
+
+.details-button:hover {
+    background: blueviolet;
+}

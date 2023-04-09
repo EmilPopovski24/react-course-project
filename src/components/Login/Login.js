@@ -17,25 +17,6 @@ export const Login = () => {
     }, onLoginSubmit)
 
     return(
-//         <div className="form" onClick={onLoginSubmit}>
-//      <form>
-//        <div className="input-container">
-//          <label>Email </label>
-//          <input type="email" name={Loginkeys.Email} value={values[Loginkeys.Email]} onChange={changeHandler} required />
-         
-//        </div>
-//        <div className="input-container">
-//          <label>Password </label>
-//          <input type="password" name={Loginkeys.Password} value={values[Loginkeys.Password]} onChange={changeHandler} required />
-         
-//        </div>
-//        <div className="button-container">
-//          <input type="button" />
-//        </div>
-//      </form>
-//    </div>
-// );
-
 
         <section id="login-page" className="auth">
             <form id="login" onSubmit={onSubmitfunc} method="POST" style={{width:"40%", margin: "80px auto"}} >
