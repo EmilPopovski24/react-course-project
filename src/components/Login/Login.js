@@ -25,7 +25,7 @@ export const Login = () => {
                     <input name={Loginkeys.Email} type="email" className="form-control" id="email" value={values[Loginkeys.Email]} onChange ={changeHandler} aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password </label>
+                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input name={Loginkeys.Password} type="password" className="form-control" id="password" value={values[Loginkeys.Password]} onChange ={changeHandler}/>
                 </div>      
                 <button style={{background:"green", border:"none"}} type="submit" className="btn btn-primary">Login</button>
