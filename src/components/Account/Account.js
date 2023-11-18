@@ -2,8 +2,9 @@
 
 export const Account = () => {
     return (
-            <div>
-                <p>My Account</p>
+            <div>  
+                <h3>My Account</h3>
+                <h5>Personal Info</h5>
             </div>
     )
 }
