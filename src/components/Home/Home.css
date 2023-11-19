@@ -4,6 +4,8 @@ body {
 
 h1 {
     margin: 30px auto;
+    margin-right:auto;
+    margin-left: auto; 
     text-align:center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
