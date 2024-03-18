@@ -3,8 +3,8 @@
 export const Account = () => {
     return (
             <div>  
-                <h3>My Account</h3>
-                <h5>Personal Information</h5>
+                <h3 className="profile-header">My Account</h3>
+                <h5 className="profile-info">Personal Information</h5>
             </div>
     )
 }
