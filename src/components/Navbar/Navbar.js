@@ -6,7 +6,7 @@ import { useContext } from "react";
 export const Navbar = () => {
     const { isAuthenticated, userEmail } = useContext(AuthContext);
 
-    return(
+    return( 
         <div>  
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
