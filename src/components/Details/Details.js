@@ -36,10 +36,10 @@ export const Details = () => {
         const response = await commmentService.createComment(movieId, values.comment);
         // console.log(response)
         //new reference for new data
-        // setMovie(state => ({
-        //     ...state, 
-        //     comments: [...state.comments, response]
-        // }))     
+        setMovie(state => ({
+            ...state, 
+            comments: [...state.comments, response]
+        }))     
     };
 
     const isOwner = movie._ownerId === userId;
