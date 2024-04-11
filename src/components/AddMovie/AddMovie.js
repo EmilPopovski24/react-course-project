@@ -12,7 +12,6 @@ export const AddMovie = ({
     summary:'',
 }, onCreateMovieSubmit);
 
-
     return (
         <section id="addMovieSection">
         <form id="addMovieForm" onSubmit={onSubmitfunc} method="POST" >
