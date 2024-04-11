@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 
 export const Navbar = () => {
+    
     const { isAuthenticated, userEmail } = useContext(AuthContext);
 
     return( 
