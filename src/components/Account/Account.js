@@ -1,7 +1,6 @@
 import "./Account.css";
 
-export const Account = ({
-userEmail}) => {
+export const Account = () => {
 
     return (
             <div>  
