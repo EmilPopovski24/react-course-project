@@ -7,20 +7,16 @@ const request = requestFactory();
     
 export const createComment = async (movieId, comment) => {
         const result = await request.post(baseUrl,{movieId, comment});
-        
-        // console.log(data)
-        // console.log("-------")
-        // console.log(result)
         return result
     }
     
-export const getAllComments = async (movieId) => {
-        const query = encodeURIComponent(`movieId="${movieId}"`)
-        const author = encodeURIComponent(`author=_ownerId:users`);
-        const result = await request.get(`${baseUrl}/?where=${query}&load=${author}`);
-        // const comments = Object.values(result)
-        return result
-    }
+// export const getAllComments = async (movieId) => {
+//         const query = encodeURIComponent(`movieId="${movieId}"`)
+//         const author = encodeURIComponent(`author=_ownerId:users`);
+//         const result = await request.get(`${baseUrl}/?where=${query}&load=${author}`);
+//         const comments = Object.values(result)
+//         return comments
+//     }
 
     // return {
     //     createComment,

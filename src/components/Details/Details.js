@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
 import * as commmentService from "../../services/commentService"
 
-
 import { useService} from "../../hooks/useService";
 import {  useAuthContext } from "../../contexts/AuthContext";
 
@@ -22,7 +21,7 @@ export const Details = () => {
     useEffect(()=> {
         Promise.all([
             movieService.getOneMovie(movieId),
-            commmentService.getAllComments(movieId)
+            // commmentService.getAllComments(movieId)
         ])
             .then(([movieData, comments]) => {
                 setMovie({
