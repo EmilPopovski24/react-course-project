@@ -16,14 +16,10 @@ export const createComment = async (movieId, comment) => {
     
 export const getAllComments = async (movieId) => {
         const query = encodeURIComponent(`movieId="${movieId}"`)
-        // console.log(query)
-        const result = await request.get(`${baseUrl}?where=${query}`)
-        // console.log(result)
-        const comments = Object.values(result);
-        // console.log(comments)
-        return result;
-        
-        //  data OK
+        const author = encodeURIComponent(`author=_ownerId:users`);
+        const result = await request.get(`${baseUrl}/?where=${query}&load=${author}`);
+        // const comments = Object.values(result)
+        return result
     }
 
     // return {
