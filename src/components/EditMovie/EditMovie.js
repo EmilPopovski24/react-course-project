@@ -8,6 +8,7 @@ import { movieServiceFactory } from "../../services/movieService";
 export const EditMovie = ({
     onEditMovieSubmit,
 }) => {
+    
         const { movieId } = useParams();
         const movieService = useService(movieServiceFactory);
         const {  changeValues, values, changeHandler, onSubmitfunc } = useForm({
