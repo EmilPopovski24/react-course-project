@@ -21,7 +21,7 @@ export const getAllComments = async (movieId) => {
         // console.log(result)
         const comments = Object.values(result);
         // console.log(comments)
-        return comments;
+        return result;
         
         //  data OK
     }
