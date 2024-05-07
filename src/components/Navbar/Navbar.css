@@ -1,6 +1,7 @@
 body {
     position:relative;
 }
+
 .username {
     position:absolute;
     right:100px;
