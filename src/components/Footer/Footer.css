@@ -1,5 +1,9 @@
 .footer {
-text-align:center;
-bottom:0
-
-}
+    list-style-type: none;
+    margin: auto auto;
+    padding: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  
