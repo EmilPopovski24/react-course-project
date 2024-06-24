@@ -2,9 +2,7 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { AuthProvider } from "./contexts/AuthContext";
 import { movieServiceFactory } from "./services/movieService";
-import { RouteGuard } from "./components/guards/RouteGuard"
-// import { useService } from "./hooks/useService";
-
+import { RouteGuard } from "./components/guards/RouteGuard";
 import { Catalog } from "./components/Catalog/Catalog";
 import { Footer } from "./components/Footer/Footer";
 import { Navbar } from "./components/Navbar/Navbar";
