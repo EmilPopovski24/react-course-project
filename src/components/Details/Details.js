@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
-import * as commmentService from "../../services/commentService"
-
+import { commmentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import {  useAuthContext } from "../../contexts/AuthContext";
-
 import { AddComment } from './AddComment/AddComment';
 
 export const Details = () => {
@@ -16,6 +14,7 @@ export const Details = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const movieService = useService(movieServiceFactory);
+    const commmentService = useService(commmentServiceFactory);
     const navigator = useNavigate();
 
     useEffect(()=> {

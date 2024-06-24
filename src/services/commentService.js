@@ -3,7 +3,7 @@ import { requestFactory } from "./requester";
 const baseUrl = 'http://localhost:3030/data/comments'; 
 
 export const commentServiceFactory = (token) => {
-    
+
 const request = requestFactory();
     
  const createComment = async (movieId, comment) => {
@@ -18,7 +18,6 @@ const request = requestFactory();
         const comments = Object.values(result)
         return comments
     }
-
 
     return {
         createComment,
