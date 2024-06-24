@@ -2,7 +2,7 @@ import "./AddMovie.css"
 import { useForm } from "../../hooks/useForm"
 
 export const AddMovie = ({
-    onCreateMovieSubmit,
+    onCreateMovieSubmit
 }) => { const {values, changeHandler, onSubmitfunc } = useForm({
     title:'',
     year:'',
@@ -18,7 +18,7 @@ export const AddMovie = ({
             <div className="container">
 
                 <h3 className="addmovie-header">Add a Movie</h3>
-                
+
                 <label htmlFor="title" className="form-label">Movie Title:</label>
                 <input value={values.title} onChange={changeHandler} type="addmoviename" name ="title" className="form-control" id="title" aria-describedby="emailHelp" />
             
