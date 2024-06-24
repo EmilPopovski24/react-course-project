@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:3030/data/comments';
 
 export const commentServiceFactory = (token) => {
 
-const request = requestFactory();
+const request = requestFactory(token);
     
  const createComment = async (movieId, comment) => {
         const result = await request.post(baseUrl,{movieId, comment});

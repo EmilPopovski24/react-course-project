@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
 import { commmentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
-import {  useAuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import { AddComment } from './AddComment/AddComment';
 
 export const Details = () => {
