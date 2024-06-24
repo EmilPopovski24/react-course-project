@@ -9,7 +9,7 @@ export const Account = () => {
     return (
             <div className="accpunt-page">  
                 <h3 className="profile-header">My Account</h3>
-                <p>name: {user.userEmail} </p>
+                <p>Name: {user.userEmail} </p>
                 <h5 className="profile-info">Personal Information</h5>
             </div>
     )
