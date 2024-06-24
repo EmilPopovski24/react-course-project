@@ -21,7 +21,7 @@ export const Details = () => {
     useEffect(()=> {
         Promise.all([
             movieService.getOneMovie(movieId),
-            // commmentService.getAllComments(movieId)
+            commmentService.getAllComments(movieId)
         ])
             .then(([movieData, comments]) => {
                 setMovie({
