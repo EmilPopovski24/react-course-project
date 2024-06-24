@@ -11,6 +11,7 @@ export const CatalogItem = ({
     director,
     _id
 }) => {
+    
     const { isAuthenticated } = useContext(AuthContext);
 
     return(
