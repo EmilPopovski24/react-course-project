@@ -6,7 +6,7 @@ import { useService } from "../../hooks/useService";
 import { movieServiceFactory } from "../../services/movieService";
 
 export const EditMovie = ({
-    onEditMovieSubmit,
+    onEditMovieSubmit
 }) => {
     
         const { movieId } = useParams();
@@ -35,7 +35,7 @@ export const EditMovie = ({
             <div className="container">
 
                 <h3>Edit Movie Details</h3>
-                
+
                 <label htmlFor="title" className="form-label">Movie Title:</label>
                 <input value={values.title} onChange={changeHandler} type="addmoviename" name ="title" className="form-control" id="title" aria-describedby="emailHelp" />
             
