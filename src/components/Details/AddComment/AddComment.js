@@ -2,7 +2,7 @@ import "./AddComment.css"
 import { useForm } from "../../../hooks/useForm"
 
 export const AddComment = ({
-    onCommentSubmit,
+    onCommentSubmit
 }) => {
     const { values, changeHandler, onSubmitfunc } = useForm({
         comment: ''
