@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
-import { commmentServiceFactory } from "../../services/commentService"
+import { commentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { AddComment } from './AddComment/AddComment';
@@ -14,13 +14,13 @@ export const Details = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const movieService = useService(movieServiceFactory);
-    const commmentService = useService(commmentServiceFactory);
+    const commentService = useService(commentServiceFactory);
     const navigator = useNavigate();
 
     useEffect(()=> {
         Promise.all([
             movieService.getOneMovie(movieId),
-            commmentService.getAllComments(movieId)
+            commentService.getAllComments(movieId)
         ])
             .then(([movieData, comments]) => {
                 setMovie({
@@ -31,7 +31,7 @@ export const Details = () => {
     },[movieId, movieService]);
 
     const onCommentSubmit = async (values) => {        
-        const response = await commmentService.createComment(movieId, values.comment);
+        const response = await commentService.createComment(movieId, values.comment);
         setMovie(state => ({
             ...state, 
             comments: [...state.comments, response]
