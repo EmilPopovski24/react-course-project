@@ -9,7 +9,7 @@ export const commentServiceFactory = (token) => {
     const createComment = async (movieId, comment) => {
         const result = await request.post(baseUrl,{movieId, comment});
         return result
-}
+    }
     
     const getAllComments = async (movieId) => {
         const query = encodeURIComponent(`movieId="${movieId}"`)
@@ -17,7 +17,7 @@ export const commentServiceFactory = (token) => {
         const result = await request.get(`${baseUrl}/?where=${query}&load=${author}`);
         const comments = Object.values(result)
         return comments
-}
+    }
 
     return {
         createComment,
