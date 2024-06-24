@@ -18,7 +18,7 @@ import { EditMovie } from "./components/EditMovie/EditMovie";
 import { Account } from "./components/Account/Account"
 
 function App() {
-    //keep movies data
+    
     const [movies, setMovies] = useState([]);
     const movieService = movieServiceFactory(); 
     const navigator = useNavigate();
