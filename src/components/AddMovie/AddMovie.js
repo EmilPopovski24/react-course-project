@@ -39,7 +39,6 @@ export const AddMovie = ({
                 
                 <button type="submit" className="btn-primary">Submit</button>
             </div>
-            
         </form>
         </section>
     )
