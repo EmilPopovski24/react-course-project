@@ -38,6 +38,7 @@ export const AddMovie = ({
                 <textarea value={values.summary} onChange={changeHandler} className="summary" name="summary" id="summary"></textarea>
                 
                 <button type="submit" className="btn-primary">Submit</button>
+                
             </div>
         </form>
         </section>
