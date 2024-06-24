@@ -31,7 +31,6 @@ function App() {
     },[]);
 
     const onCreateMovieSubmit = async(data) => {
-        // console.log(data);
         const newMovie = await movieService.createMovie(data);
         setMovies(state => [...state, newMovie]);
         navigator('/catalog');
