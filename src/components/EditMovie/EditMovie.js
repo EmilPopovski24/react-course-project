@@ -55,8 +55,8 @@ export const EditMovie = ({
                 <textarea value={values.summary} onChange={changeHandler} name="summary" id="summary"></textarea>
                 
                 <button type="submit" className="btn btn-primary">Confirm changes</button>
-            </div>
-            
+
+            </div> 
         </form>
         </section>
     )
