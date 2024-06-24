@@ -24,10 +24,12 @@ function App() {
     const navigator = useNavigate();
     
     useEffect(() => {
-        movieService.getAllMovies()
+        if(movies.length > 0) {
+            movieService.getAllMovies()
             .then(result => {
                 setMovies(result)
             })
+        }
     },[]);
 
     const onCreateMovieSubmit = async(data) => {
