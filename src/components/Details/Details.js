@@ -15,6 +15,8 @@ export const Details = () => {
     const [movie, setMovie] = useState({});
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
+    const [comments, setComments] = useState([]);
+    const [commment, setComment] = useState('')
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -35,7 +37,8 @@ export const Details = () => {
         setMovie(state => ({
             ...state, 
             comments: [...state.comments, response]
-        }))     
+        }))  
+        setComment('')
     };
 
     const isOwner = movie._ownerId === userId;
@@ -74,13 +77,26 @@ export const Details = () => {
             )}
                 {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
                 </div>                       
-            <ul className="comments-ul" >                      
+            <div className="comments-ul" >                      
                     <h5>Comments:</h5>
-                    {movie.comments && Object.values(movie.comments).map(x => (
+                    <ul className='petComments-ul'>  
+                    {comments.length > 0 && (comments?.map(x=> (
+                        <li key={x._id} className='comment-li'>
+                            <p><b>{x.author.username}</b>: {x.comment}</p>  
+                            <hr />    
+                        </li>
+                    )))}
+                    {comments.length === 0 && (
+                        <h5>No comments</h5>
+                    )}
+                </ul>
+
+                    {/* {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.username}: {x.comment}</p>
-                    </li> ))}
-            </ul>  
+                    </li> ))} */}
+            {/* </ul>   */}
+            </div>
          </section>      
     )      
 }
