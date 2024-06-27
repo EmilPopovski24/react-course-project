@@ -90,7 +90,7 @@ export const Details = () => {
                 </div>                       
             <div className="comments-ul" >                      
                     <h5>Comments:</h5>
-                    <ul className='petComments-ul'>  
+                    <ul className='comments-ul'>  
                     {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p><b>{x.author.username}</b>: {x.comment}</p>  
