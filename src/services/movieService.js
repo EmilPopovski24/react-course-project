@@ -29,7 +29,6 @@ export const movieServiceFactory = (token) => {
     
     const createMovie = async (movieData) => {
         const res = await request.post(baseUrl, movieData);
-        // console.log(res);
         return res;
     }
     
