@@ -1,4 +1,3 @@
-import "./Details.css";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -7,6 +6,7 @@ import { commentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { AddComment } from './AddComment/AddComment';
+import "./Details.css";
 
 export const Details = () => {
     
@@ -78,7 +78,7 @@ export const Details = () => {
                     <h5>Comments:</h5>
                     {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
-                        <p className="comment-text">{x.comment}</p>
+                        <p className="comment-text">{x.username}: {x.comment}</p>
                     </li> ))}
             </ul>  
          </section>      
