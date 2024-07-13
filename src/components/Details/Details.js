@@ -107,10 +107,10 @@ export const Details = () => {
                     )}
                 </ul>
 
-                    {movie.comments && Object.values(movie.comments).map(x => (
+                    {/* {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.username}: {x.comment}</p>
-                    </li> ))}
+                    </li> ))} */}
             {/* </ul>   */}
             </div>
          </section>      
