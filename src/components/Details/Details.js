@@ -92,9 +92,10 @@ export const Details = () => {
                 </div>
             )}
             
-                {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
+                
                 </div>   
-            </section>                     
+            </section>      
+            {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
             <div className="comments-ul" >                      
                     <h5>Comments:</h5>
                     <ul className='comments-ul'>  
