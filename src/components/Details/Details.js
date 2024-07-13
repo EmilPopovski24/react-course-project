@@ -65,23 +65,22 @@ export const Details = () => {
     };
 
     return (
-        <section>
-            {/* <h3 className="details-header">Movie Details</h3>  */}
-         <section className="movie">         
-            <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
-            <div className="info">
-                <div className="movie-title">
-                    <h1>{movie.title}</h1>
+        <section className="main">
+            <section className="movie">         
+                <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
+                <div className="info">
+                    <div className="movie-title">
+                        <h1>{movie.title}</h1>
+                    </div>
+                    <h3>Director: {movie.director}</h3>
+                    <h3>Genre: {movie.genre}</h3>
+                    <h3>Year: {movie.year}</h3>
+                    <h3>Summary:</h3>
+                    <div className="movie-summary">
+                        <p id="text">{movie.summary}</p>
+                    </div>                
                 </div>
-                <h3>Director: {movie.director}</h3>
-                <h3>Genre: {movie.genre}</h3>
-                <h3>Year: {movie.year}</h3>
-                <h3>Summary:</h3>
-                <div className="movie-summary">
-                    <p id="text">{movie.summary}</p>
-                </div>                
-            </div>
-        </section> 
+            </section> 
                 <div className="actions">
                     {isOwner && (<div className="editdelete">
                     <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
