@@ -2,3 +2,9 @@ body {
     margin:0;
 }
 
+.movie-section {
+    margin: 50px;
+    border: 2px solid green;
+    display: flex;
+    flex-direction: row;
+}

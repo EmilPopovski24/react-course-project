@@ -66,7 +66,7 @@ export const Details = () => {
 
     return (
         <section className="main">
-            <section className="movie">         
+            <section className="movie-section">         
                 <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
                 <div className="info">
                     <div className="movie-title">
