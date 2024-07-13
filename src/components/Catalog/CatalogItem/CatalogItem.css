@@ -15,7 +15,6 @@
     margin: 40px;
 }
 
-/* .allMovies {
-    display: flex;
-    flex-direction: row;
-} */
+.card-body {
+    margin-left: 0;
+}
