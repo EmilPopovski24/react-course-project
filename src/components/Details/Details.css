@@ -8,7 +8,8 @@ body {
 
 .details-header {
     margin:10px;
-    text-align:center
+    text-align:center;
+    font-weight: bold;
 }
 
 .movie {

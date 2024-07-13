@@ -66,7 +66,7 @@ export const Details = () => {
 
     return (
         <section>
-            <h3 className="details-header">Movie Details</h3> 
+            {/* <h3 className="details-header">Movie Details</h3>  */}
          <section className="movie">         
             <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
             <div className="info">
@@ -81,7 +81,7 @@ export const Details = () => {
                     <p id="text">{movie.summary}</p>
                 </div>                
             </div>
-            </section> 
+        </section> 
                 <div className="actions">
                     {isOwner && (<div className="editdelete">
                     <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
