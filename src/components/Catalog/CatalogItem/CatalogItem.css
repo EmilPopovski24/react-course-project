@@ -10,3 +10,12 @@
 .details-button:hover {
     background: blueviolet;
 }
+
+.card {
+    margin: 40px;
+}
+
+/* .allMovies {
+    display: flex;
+    flex-direction: row;
+} */

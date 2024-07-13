@@ -8,3 +8,9 @@
 .catalog {
     margin: auto;
 }
+
+.movies-list {
+    display: flex;
+    flex-direction: row;
+}
+
