@@ -111,7 +111,7 @@ export const Details = () => {
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.username}: {x.comment}</p>
                     </li> ))}
-            </ul>  
+            {/* </ul>   */}
             </div>
          </section>      
     )      
