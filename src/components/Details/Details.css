@@ -8,3 +8,7 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.movie-info {
+    margin-left: 0;
+}
