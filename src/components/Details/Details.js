@@ -84,15 +84,17 @@ export const Details = () => {
                         <p id="text">{movie.summary}</p>
                     </div>                
                 </div>
-            </section> 
+            
                 <div className="actions">
                     {isOwner && (<div className="editdelete">
                     <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
                     <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
                 </div>
             )}
+            
                 {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}
-                </div>                       
+                </div>   
+            </section>                     
             <div className="comments-ul" >                      
                     <h5>Comments:</h5>
                     <ul className='comments-ul'>  
