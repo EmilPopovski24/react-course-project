@@ -16,7 +16,7 @@ export const Details = () => {
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
     const [comments, setComments] = useState([]);
-    const [commment, setComment] = useState('')
+    const [comment, setComment] = useState('')
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -70,7 +70,9 @@ export const Details = () => {
          <section className="movie">         
             <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
             <div className="info">
-                <h1>{movie.title}</h1>
+                <div className="movie-title">
+                    <h1>{movie.title}</h1>
+                </div>
                 <h3>Director: {movie.director}</h3>
                 <h3>Genre: {movie.genre}</h3>
                 <h3>Year: {movie.year}</h3>

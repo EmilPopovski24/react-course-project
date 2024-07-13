@@ -81,7 +81,14 @@ p{
         background: green;
         border:none;
         border-radius:5px;
-
         padding:5px 10px;        
-    
+}
+
+.movie-title {
+   margin-top: 0;
+   margin-left: 0;
+}
+
+h1 {
+    text-align: center;
 }
