@@ -20,9 +20,9 @@ export const CatalogItem = ({
                     <img src={coverUrl} className="card-img-top" alt={title} /> 
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
-                    <p className="card-text">Director:{director}</p>
-                    <p className="card-text">Genre: {genre}</p>
                     <p className="card-text">{year}</p>
+                    <p className="card-text"><b>Director: </b>{director}</p>
+                    <p className="card-text"><b>Genre: </b>{genre}</p>
                     {isAuthenticated && (<Link to={`/catalog/${_id}`} className="details-button">Details</Link>)}
                 </div>
             </div>
