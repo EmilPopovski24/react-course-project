@@ -3,14 +3,15 @@ body {
 }
 
 .movie-section {
-    margin: 50px;
-    border: 2px solid green;
+    margin: 50px 50px 0px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content:baseline;
     display: flex;
     flex-direction: row;
 }
 
 .actions{
     display: block;
-    margin-left: 50px;
-    margin-top: 0px;;
+
 }
