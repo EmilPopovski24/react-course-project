@@ -17,10 +17,10 @@ h3{
 }
 
 .btn-primary {
+    margin: auto auto;
     background-color: green;
     color:white;
     border:none;
     border-radius:5px;
     padding:5px 10px;
-    margin: auto auto;
 }

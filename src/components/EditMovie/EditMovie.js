@@ -27,7 +27,7 @@ export const EditMovie = ({
                 .then(result => {
                     changeValues(result);
                 });
-        }, [changeValues, movieId, movieService]);
+        }, [movieId]);
     
     return (
         <section id="editMovieSection">
