@@ -10,6 +10,7 @@ body {
 }
 
 .actions{
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin-left: 50px;
+    margin-top: 0px;;
 }
