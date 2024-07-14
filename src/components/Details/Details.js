@@ -95,7 +95,6 @@ export const Details = () => {
                 </div>      
             {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
             <div className="comments-ul" >                      
-                    <h5>Comments:</h5>
                     <ul className='comments-ul'>  
                     {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
