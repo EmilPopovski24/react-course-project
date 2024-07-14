@@ -1,0 +1,27 @@
+.summary {
+    display: block;
+    width:100%;
+    height:20%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.editMovieSection {
+    width:50%;
+    margin:auto;
+}
+
+h3{
+    text-align:center;
+    margin:30px;
+}
+
+.btn-primary {
+    background-color: green;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:5px 10px;
+    margin: auto auto;
+    margin-top: 40px;
+}

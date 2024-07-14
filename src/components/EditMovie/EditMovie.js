@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useService } from "../../hooks/useService";
 import { movieServiceFactory } from "../../services/movieService";
+import "./EditMovie.css"
 
 export const EditMovie = ({
     onEditMovieSubmit
@@ -25,7 +26,6 @@ export const EditMovie = ({
             movieService.getOneMovie(movieId)
                 .then(result => {
                     changeValues(result);
-                    console.log(result)
                 });
         }, [changeValues, movieId, movieService]);
     
@@ -54,7 +54,7 @@ export const EditMovie = ({
                 <label htmlFor="summary">Summary:</label>
                 <textarea value={values.summary} onChange={changeHandler} name="summary" id="summary"></textarea>
                 
-                <button type="submit" className="btn btn-primary">Confirm changes</button>
+                <button type="submit" className="btn-primary">Confirm changes</button>
 
             </div> 
         </form>
