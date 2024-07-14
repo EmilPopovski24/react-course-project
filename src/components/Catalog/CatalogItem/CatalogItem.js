@@ -1,7 +1,7 @@
-import "./CatalogItem.css"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useContext } from "react";
+import "./CatalogItem.css"
 
 export const CatalogItem = ({
     title,
