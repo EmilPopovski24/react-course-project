@@ -23,7 +23,6 @@ body {
 }
 
 .movie-info-li {
-    /* font-weight: bold; */
     font-size: 20px;
 }
 
@@ -35,5 +34,19 @@ body {
 .actions{
     display: block;
     margin-left: 50px;
-    
+}
+
+.btn-primary {
+    background-color: green;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:5px 10px;
+    margin: 50px;
+    margin-top: 40px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background:blueviolet;
 }
