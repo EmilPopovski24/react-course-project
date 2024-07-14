@@ -1,6 +1,6 @@
-body {
+/* body {
     margin:0;
-}
+} */
 
 .movie-section {
     margin: 50px 50px 0px 50px;
@@ -43,8 +43,6 @@ body {
     border:none;
     border-radius:5px;
     padding:5px 10px;
-    margin: 50px;
-    margin-top: 40px;
     text-decoration: none;
 }
 
@@ -53,7 +51,7 @@ body {
 }
 
 .comments-ul {
-    
+
 }
 
 .comment {
