@@ -75,16 +75,17 @@ export const Details = () => {
                         <h1>{movie.title}</h1>
                     </div>
                     <div className="movie-info">
-                        <h3>{movie.year}</h3>
-                        <h3>Director: {movie.director}</h3>
-                        <h3>Genre: {movie.genre}</h3>
+                        <ul className="movie-info-ul">
+                            <li>{movie.year}</li>
+                            <li>Director: {movie.director}</li>
+                            <li>Genre: {movie.genre}</li>
+                        </ul>
                     </div>
                     <div className="movie-summary">
                         <p id="text">{movie.summary}</p>
                     </div>                
                 </div>
             </section>   
-
             <div className="actions">
                     {isOwner && (<div className="editdelete">
                     <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>

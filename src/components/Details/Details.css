@@ -12,7 +12,13 @@ body {
     flex-direction: row;
 }
 
+.movie-info-ul{
+    list-style: none;
+    float:left;
+}
+
 .actions{
     display: block;
     margin-left: 50px;
+    
 }
