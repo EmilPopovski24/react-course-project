@@ -7,14 +7,29 @@ body {
     display: flex;
     flex-direction: row;
     justify-content:baseline;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     flex-direction: row;
+}
+
+.movie-title {
+    float: left;
+    margin-left: 50px;
 }
 
 .movie-info-ul{
     list-style: none;
     float:left;
+}
+
+.movie-info-li {
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+
+.movie-info-summary {
+    font-size: 16px;
+    margin-top: 20px;
 }
 
 .actions{

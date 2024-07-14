@@ -76,14 +76,13 @@ export const Details = () => {
                     </div>
                     <div className="movie-info">
                         <ul className="movie-info-ul">
-                            <li>{movie.year}</li>
-                            <li>Director: {movie.director}</li>
-                            <li>Genre: {movie.genre}</li>
+                            <li className="movie-info-li">{movie.year}</li>
+                            <li className="movie-info-li">Director: {movie.director}</li>
+                            <li className="movie-info-li">Genre: {movie.genre}</li>
+                            <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
                     </div>
-                    <div className="movie-summary">
-                        <p id="text">{movie.summary}</p>
-                    </div>                
+          
                 </div>
             </section>   
             <div className="actions">
