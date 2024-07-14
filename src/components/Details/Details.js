@@ -82,7 +82,6 @@ export const Details = () => {
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
                     </div>
-          
                 </div>
             </section>   
             <div className="actions">
