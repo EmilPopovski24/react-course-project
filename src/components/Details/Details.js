@@ -28,7 +28,7 @@ export const Details = () => {
             .then(result => {
                 setComments(result)
             })
-    }, [movieId]);
+    }, [movieId, movieService]);
 
     // useEffect(()=> {
     //     Promise.all([
