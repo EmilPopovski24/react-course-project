@@ -47,7 +47,7 @@ export const Details = () => {
         const response = await commentService.createComment(movieId, values.comment);
         setMovie(state => ({
             ...state, 
-            comments: [...state.comments, response]
+            comments: [...comments, response]
         }))  
         setComment('')
         console.log(response)
