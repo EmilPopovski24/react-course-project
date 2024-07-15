@@ -23,12 +23,12 @@ export const Details = () => {
         movieService.getOneMovie(movieId)
             .then(result => {
                 setMovie(result)
-                commentService.getAllComments(movieId)   
+                return commentService.getAllComments(movieId)   
             })
             .then(result => {
                 setComments(result)
             })
-    }, [movieId, movieService]);
+    }, [movieId]);
 
     // useEffect(()=> {
     //     Promise.all([
