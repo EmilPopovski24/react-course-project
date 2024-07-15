@@ -23,7 +23,7 @@ export const Details = () => {
         movieService.getOneMovie(movieId)
             .then(result => {
                 setMovie(result)
-                return commentService.getAllComments(movieId)   
+                commentService.getAllComments(movieId)   
             })
             .then(result => {
                 setComments(result)
