@@ -43,7 +43,8 @@ export const Details = () => {
     //         });
     // },[movieId, movieService]);
 
-    const onCommentSubmit = async (values) => {        
+    const onCommentSubmit = async (e) => {       
+        e.prevetDefault() 
         const response = await commentService.createComment({
             movieId, comment
         });
