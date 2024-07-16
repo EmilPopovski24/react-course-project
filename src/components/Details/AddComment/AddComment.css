@@ -7,7 +7,7 @@
     height:100px;
 }
 
-.submit-btn {
+.post-btn {
     color:white;
     background: green;
     border:none;
@@ -16,6 +16,6 @@
     display:block;
 }
 
-.submit-btn:hover{
+.post-btn:hover{
     background:blueviolet;
 }
