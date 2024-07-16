@@ -44,7 +44,9 @@ export const Details = () => {
     // },[movieId, movieService]);
 
     const onCommentSubmit = async (values) => {        
-        const response = await commentService.createComment(movieId, values.comment);
+        const response = await commentService.createComment({
+            movieId, comment
+        });
         setMovie(state => ({
             ...state, 
             comments: [...comments, response]
