@@ -1,4 +1,11 @@
-.movie-img {
+.movie-section {
     margin:50px;
-    width:30%;
+    border: 2px solid green;
+    display:flex;
 }
+
+.movie-img {
+    width:100%;
+    max-width: 500px;
+}
+
