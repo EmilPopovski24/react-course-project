@@ -71,7 +71,7 @@ export const Details = () => {
         <section className="main">
             <section className="movie-section">   
                 <div className="movie-img">
-                    <img className ="movie-cover" src={movie.coverUrl} alt={movie.title} />
+                    <img src={movie.coverUrl} alt={movie.title} />
                 </div>      
                 <div className="info">
                     <div className="movie-title">
