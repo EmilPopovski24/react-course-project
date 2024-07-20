@@ -10,11 +10,6 @@ export const movieServiceFactory = (token) => {
         return result;
     }
 
-    const deleteMovie = (movieId)  => {
-        const result =  request.del(`${baseUrl}/${movieId}`)
-        return result;
-    };
-
     const getAllMovies = async () => {
         const result = await request.get(baseUrl);
         const movies = Object.values(result);
@@ -43,7 +38,6 @@ export const movieServiceFactory = (token) => {
     // }
 
     return {
-        deleteMovie,
         editMovie,
         getAllMovies,
         getOneMovie,

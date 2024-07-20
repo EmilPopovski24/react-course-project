@@ -9,7 +9,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import "./Details.css";
 
 export const Details = ({
-    deleteM
+    deleteMovie
 }) => {
     
     const { userId, isAuthenticated } = useAuthContext();
@@ -19,7 +19,6 @@ export const Details = ({
     const commentService = useService(commentServiceFactory);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -67,7 +66,7 @@ export const Details = ({
         // eslint-disable-next-line no-restricted-globals
         const result = confirm(`Are you sure you want to delete ${movie.title} from the list?`)
         if (result) {
-            await deleteM(movie._id);
+            await deleteMovie(movie._id);
         }
         navigator('/catalog');
     };
