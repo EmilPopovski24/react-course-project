@@ -43,8 +43,8 @@ export const Details = () => {
     //         });
     // },[movieId, movieService]);
 
-    const onCommentSubmit = async (values) => {       
-        // e.preventDefault(); 
+    const onCommentSubmit = async (e) => {       
+        e.preventDefault(); 
         const response = await commentService.createComment({
             movieId, comment
         });
@@ -92,7 +92,16 @@ export const Details = () => {
                 )}</div> 
             </div>
             </section>        
-            {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
+            {/* {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}                */}
+            {isAuthenticated && (
+                <div className="addComment-div">
+                <form className="addComment-form" onSubmit={onCommentSubmit}>
+                    <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
+                    <button className='post-btn' type="submit">Add comment</button>
+                </form>
+            </div>
+
+            )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
                     {comments.length > 0 && (comments?.map(x=> (
