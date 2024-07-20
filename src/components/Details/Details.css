@@ -6,7 +6,19 @@
 
 .movie-img {
     width:100%;
-    max-width: 500px;
+}
+
+.movie-title {
+    margin-left: 30px;
+}
+
+.movie-info {
+    
+    
+}
+
+.movie-info-ul {
+    list-style: none;
 }
 
 .actions {

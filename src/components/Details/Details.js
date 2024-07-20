@@ -75,11 +75,10 @@ export const Details = () => {
                 </div>      
                 <div className="info">
                     <div className="movie-title">
-                        <h1>{movie.title}</h1>
+                        <h4>{movie.title} ({movie.year})</h4>
                     </div>
                     <div className="movie-info">
                         <ul className="movie-info-ul">
-                            <li className="movie-info-li">{movie.year}</li>
                             <li className="movie-info-li">Director: {movie.director}</li>
                             <li className="movie-info-li">Genre: {movie.genre}</li>
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
