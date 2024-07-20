@@ -5,7 +5,7 @@ import { movieServiceFactory } from "../../services/movieService"
 import { commentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { AddComment } from './AddComment/AddComment';
+// import { AddComment } from './AddComment/AddComment';
 import "./Details.css";
 
 export const Details = () => {
