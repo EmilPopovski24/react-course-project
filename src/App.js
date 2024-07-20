@@ -43,6 +43,10 @@ function App() {
         return result
     }
 
+    const deleteM = (movieId) => {
+        setMovies(state => state.filter(movie => movie._id !== movieId))
+};
+
   return (
     <AuthProvider>
     <div>
@@ -55,7 +59,7 @@ function App() {
                 <Route path="/catalog" element={<Catalog movies={movies} />} />
                 <Route element ={<RouteGuard />} >
                     <Route path="/account" element={<Account />} />
-                    <Route path='/catalog/:movieId' element={<Details />} />
+                    <Route path='/catalog/:movieId' element={<Details deleteM={deleteM} />} />
                     <Route path="/addmovie" element={<AddMovie onCreateMovieSubmit={onCreateMovieSubmit} />} />
                     <Route path="/catalog/:movieId/edit" element={<EditMovie onEditMovieSubmit={onEditMovieSubmit} />} />
                 </Route>

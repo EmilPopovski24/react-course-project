@@ -8,7 +8,9 @@ import { useAuthContext } from "../../contexts/AuthContext";
 // import { AddComment } from './AddComment/AddComment';
 import "./Details.css";
 
-export const Details = () => {
+export const Details = ({
+    deleteM
+}) => {
     
     const { userId, isAuthenticated } = useAuthContext();
     const { movieId } = useParams();
@@ -17,6 +19,7 @@ export const Details = () => {
     const commentService = useService(commentServiceFactory);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -64,10 +67,9 @@ export const Details = () => {
         // eslint-disable-next-line no-restricted-globals
         const result = confirm(`Are you sure you want to delete ${movie.title} from the list?`)
         if (result) {
-            await movieService.deleteMovie(movie._id);
-            navigator('/catalog');
+            await deleteM(movie._id);
         }
-        return  
+        navigator('/catalog');
     };
 
     return (
@@ -98,7 +100,7 @@ export const Details = () => {
             {/* {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}                */}
             {isAuthenticated && (
                 <div className="addComment-div">
-                    <form className="addComment-form" onSubmit={onCommentSubmit} >
+                    <form className="addComment-form" onSubmit={onCommentSubmit} method="POST">
                         <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
                         <button className='post-btn' type="submit">Add comment</button>
                     </form>
