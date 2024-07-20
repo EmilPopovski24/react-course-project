@@ -36,12 +36,20 @@
     margin: 50px;
 }
 
+.comment-area {
+    width:500px;
+    height:100px;
+}
+
 .post-btn {
-    background-color: green;
     color:white;
+    background: green;
     border:none;
     border-radius:5px;
     padding:5px 10px;
-    margin: auto auto;
-    margin-top: 40px;
+    display:block;
+}
+
+.post-btn:hover{
+    background:blueviolet;
 }
