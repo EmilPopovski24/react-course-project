@@ -17,7 +17,12 @@
     list-style: none;
 }
 
+.actions {
+    margin-left: 30px;
+}
+
 .btn-primary {
+
     text-decoration: none;
 }
 

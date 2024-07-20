@@ -79,17 +79,17 @@ export const Details = () => {
                     </div>
                     <div className="movie-info">
                         <ul className="movie-info-ul">
-                            <li className="movie-info-li">Director: {movie.director}</li>
-                            <li className="movie-info-li">Genre: {movie.genre}</li>
+                            <li className="movie-info-li"><b>Director: </b>{movie.director}</li>
+                            <li className="movie-info-li"><b>Genre: </b>{movie.genre}</li>
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
                     </div>
                     <div className="actions">
-                    {isOwner && (<div className="editdelete">
-                    <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
-                    <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
-                </div>  
-            )}</div> 
+                        {isOwner && (<div className="editdelete">
+                        <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
+                        <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
+                    </div>  
+                )}</div> 
             </div>
             </section>        
             {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
