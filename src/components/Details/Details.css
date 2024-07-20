@@ -35,3 +35,13 @@
 .addComment-div {
     margin: 50px;
 }
+
+.post-btn {
+    background-color: green;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:5px 10px;
+    margin: auto auto;
+    margin-top: 40px;
+}

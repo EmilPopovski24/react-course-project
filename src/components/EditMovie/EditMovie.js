@@ -34,7 +34,7 @@ export const EditMovie = ({
         <form id="editMovieForm" onSubmit={onSubmitfunc} >
             <div className="container">
 
-                <h3>Edit Movie Details</h3>
+                <h3 className="edit-header">Edit Movie Details</h3>
 
                 <label htmlFor="title" className="form-label">Movie Title:</label>
                 <input value={values.title} onChange={changeHandler} type="addmoviename" name ="title" className="form-control" id="title" aria-describedby="emailHelp" />
