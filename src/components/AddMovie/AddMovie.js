@@ -1,15 +1,17 @@
-import "./AddMovie.css"
-import { useForm } from "../../hooks/useForm"
+import { useForm } from "../../hooks/useForm";
+import "./AddMovie.css";
 
 export const AddMovie = ({
     onCreateMovieSubmit
-}) => { const {values, changeHandler, onSubmitfunc } = useForm({
-    title:'',
-    year:'',
-    genre:'',
-    director:'',
-    coverUrl:'',
-    summary:'',
+}) => { 
+    
+    const {values, changeHandler, onSubmitfunc } = useForm({
+        title:'',
+        year:'',
+        genre:'',
+        director:'',
+        coverUrl:'',
+        summary:'',
 }, onCreateMovieSubmit);
 
     return (

@@ -53,3 +53,7 @@
 .post-btn:hover{
     background:blueviolet;
 }
+
+.comments-ul {
+    float:left;
+}
