@@ -17,14 +17,14 @@
     list-style: none;
 }
 
-/* .actions {
-    margin:50px;
-} */
-
 .btn-primary {
     text-decoration: none;
 }
 
 .btn-primary:hover {
     background-color: blueviolet;
+}
+
+.comments-list {
+    margin:50px;
 }
