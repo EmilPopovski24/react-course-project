@@ -17,10 +17,14 @@
     list-style: none;
 }
 
-.actions {
+/* .actions {
     margin:50px;
-}
+} */
 
 .btn-primary {
-    margin: 100px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: blueviolet;
 }

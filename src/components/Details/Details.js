@@ -84,16 +84,14 @@ export const Details = () => {
                             <li className="movie-info-summary"><p id="text">{movie.summary}</p></li>
                         </ul>
                     </div>
-                </div>
-            </section>   
-            <div className="actions">
+                    <div className="actions">
                     {isOwner && (<div className="editdelete">
                     <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
                     <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
-                </div>
-                
-            )}
-                </div>      
+                </div>  
+            )}</div> 
+            </div>
+            </section>        
             {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
@@ -107,11 +105,12 @@ export const Details = () => {
                         <h5>No comments</h5>
                     )}
                 </ul>
+                <ul>
                     {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.username}: {x.comment}</p>
                     </li> ))}
-            {/* </ul>   */}
+                </ul>
             </div>
          </section>      
     )      
