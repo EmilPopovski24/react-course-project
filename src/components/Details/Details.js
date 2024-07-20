@@ -54,8 +54,8 @@ export const Details = () => {
             ...state, 
             comments: [...comments, response]
         }))  
-        setComment('')
         
+        setComment('')
     };
 
     const isOwner = movie._ownerId === userId;
