@@ -39,7 +39,7 @@ function App() {
     const onEditMovieSubmit = async (values) => {
         const result = await movieService.editMovie(values._id, values);
         setMovies(oldstate => oldstate.map(x => x._id === values._id ? result : x))
-        navigator(`/catalog`);
+        navigator(`/catalog/${values._id}`);
         return result
     }
 
