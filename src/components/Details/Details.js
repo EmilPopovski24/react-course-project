@@ -102,11 +102,10 @@ export const Details = () => {
                     <button className='post-btn' type="submit">Add comment</button>
                 </form>
             </div>
-
             )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {comments.length > 0 && (comments.map(x=> (
+                    {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p><b>{x.author.username}</b>: {x.comment}</p>  
                             <hr />    
