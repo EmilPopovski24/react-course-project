@@ -46,7 +46,8 @@ export const Details = () => {
     const onCommentSubmit = async (e) => {       
         e.preventDefault(); 
         const response = await commentService.createComment({
-            movieId, comment
+            movieId, 
+            comment
         });
         setMovie(state => ({
             ...state, 
@@ -96,7 +97,7 @@ export const Details = () => {
             {/* {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}                */}
             {isAuthenticated && (
                 <div className="addComment-div">
-                <form className="addComment-form" onSubmit={onCommentSubmit}>
+                <form className="addComment-form" onSubmit={onCommentSubmit} >
                     <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
                     <button className='post-btn' type="submit">Add comment</button>
                 </form>
@@ -105,9 +106,9 @@ export const Details = () => {
             )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {comments.length > 0 && (comments?.map(x=> (
+                    {comments.length > 0 && (comments.map(x=> (
                         <li key={x._id} className='comment-li'>
-                            <p><b>{x.author}</b>: {x.comment}</p>  
+                            <p><b>{x.author.username}</b>: {x.comment}</p>  
                             <hr />    
                         </li>
                     )))}
@@ -115,12 +116,12 @@ export const Details = () => {
                         <h5>No comments</h5>
                     )}
                 </ul>
-                <ul className="comments-list">
+                {/* <ul className="comments-list">
                     {movie.comments && Object.values(movie.comments).map(x => (
                     <li key={x._id} className="comment">
                         <p className="comment-text">{x.username}: {x.comment}</p>
                     </li> ))}
-                </ul>
+                </ul> */}
             </div>
          </section>      
     )      
