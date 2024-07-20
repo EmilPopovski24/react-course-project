@@ -1,6 +1,5 @@
 .movie-section {
     margin:50px;
-    /* border: 2px solid green; */
     display:flex;
 }
 
@@ -22,7 +21,6 @@
 }
 
 .btn-primary {
-
     text-decoration: none;
 }
 
