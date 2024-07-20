@@ -52,7 +52,7 @@ export const EditMovie = ({
                 <input value={values.coverUrl} onChange={changeHandler} type="coverUrl" name="coverUrl" className="form-control" id="coverUrl" aria-describedby="emailHelp" />
             
                 <label htmlFor="summary">Summary:</label>
-                <textarea value={values.summary} onChange={changeHandler} name="summary" id="summary"></textarea>
+                <textarea value={values.summary} onChange={changeHandler} name="summary" id="summary" className="form-control"></textarea>
                 
                 <button type="submit" className="btn-primary">Confirm changes</button>
 
