@@ -5,7 +5,7 @@ import { movieServiceFactory } from "../../services/movieService"
 import { commentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
-// import { AddComment } from './AddComment/AddComment';
+import { AddComment } from './AddComment/AddComment';
 import "./Details.css";
 
 export const Details = ({
@@ -18,35 +18,32 @@ export const Details = ({
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
     const [comment, setComment] = useState('');
-    // const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState([]);
     const navigator = useNavigate();
 
-    // useEffect(()=> {
-    //     movieService.getOneMovie(movieId)
-    //         .then(result => {
-    //             setMovie(result)
-    //             console.log(comments)
-    //             return commentService.getAllComments(movieId)   
-    //         })
-    //         .then(result => {
-    //             setComments(result)
-    //         })
-    // }, [movieId]);
-
     useEffect(()=> {
-        Promise.all([
-            movieService.getOneMovie(movieId),
-             commentService.getAllComments(movieId)
-        ])
-            .then(([movieData, comments]) => {
-                setMovie({
-                    ...movieData, 
-                    comments,
-                })
-            });
-    },[movieId]);
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return commentService.getAllComments(movieId)   
+            })
+            .then(result => {
+                setComments(result)
+            })
+    }, [movieId]);
 
-    console.log(movie)
+    // useEffect(()=> {
+    //     Promise.all([
+    //         movieService.getOneMovie(movieId),
+    //         commentService.getAllComments(movieId)
+    //     ])
+    //         .then(([movieData, comments]) => {
+    //             setMovie({
+    //                 ...movieData, 
+    //                 comments,
+    //             })
+    //         });
+    // },[movieId]);
 
     const onCommentSubmit = async (e) => {       
         e.preventDefault(); 
@@ -56,12 +53,13 @@ export const Details = ({
         });
         setMovie(state => ({
             ...state, 
-            comments: [...state.comments, response]
+            comments: [...comments, response]
         }))  
         
         setComment('')
     };
 
+    console.log(comments)
     const isOwner = movie._ownerId === userId;
 
     const onDeletefunc = async () => {
@@ -98,18 +96,18 @@ export const Details = ({
                 )}</div> 
             </div>
             </section>        
-            {/* {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}                */}
-            {isAuthenticated && (
+            {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
+            {/* {isAuthenticated && (
                 <div className="addComment-div">
                     <form className="addComment-form" onSubmit={onCommentSubmit} method="POST">
                         <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
                         <button className='post-btn' type="submit">Add comment</button>
                     </form>
                 </div>
-            )}
+            )} */}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {movie.comments?.map(x=> (
+                    {comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p>: {x.comment}</p>  
                             <hr />    
