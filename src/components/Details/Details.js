@@ -21,29 +21,29 @@ export const Details = ({
     const [comments, setComments] = useState([]);
     const navigator = useNavigate();
 
-    // useEffect(()=> {
-    //     movieService.getOneMovie(movieId)
-    //         .then(result => {
-    //             setMovie(result)
-    //             return commentService.getAllComments(movieId)   
-    //         })
-    //         .then(result => {
-    //             setComments(result)
-    //         })
-    // }, [movieId]);
-
     useEffect(()=> {
-        Promise.all([
-            movieService.getOneMovie(movieId),
-            commentService.getAllComments(movieId)
-        ])
-            .then(([movieData, comments]) => {
-                setMovie({
-                    ...movieData, 
-                    comments,
-                })
-            });
-    },[movieId]);
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return commentService.getAllComments(movieId)   
+            })
+            .then(result => {
+                setComments(result)
+            })
+    }, [movieId]);
+
+    // useEffect(()=> {
+    //     Promise.all([
+    //         movieService.getOneMovie(movieId),
+    //         commentService.getAllComments(movieId)
+    //     ])
+    //         .then(([movieData, comments]) => {
+    //             setMovie({
+    //                 ...movieData, 
+    //                 comments,
+    //             })
+    //         });
+    // },[movieId]);
 
     const onCommentSubmit = async (values) => {       
         // e.preventDefault(); 
