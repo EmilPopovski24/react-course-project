@@ -21,30 +21,30 @@ export const Details = ({
     const [comments, setComments] = useState([]);
     const navigator = useNavigate();
 
-    useEffect(()=> {
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result)
-                console.log(comments)
-                return commentService.getAllComments(movieId)   
-            })
-            .then(result => {
-                setComments(result)
-            })
-    }, [movieId]);
-
     // useEffect(()=> {
-    //     Promise.all([
-    //         movieService.getOneMovie(movieId),
-    //          commentService.getAllComments(movieId)
-    //     ])
-    //         .then(([movieData, comments]) => {
-    //             setMovie({
-    //                 ...movieData, 
-    //                 comments,
-    //             })
-    //         });
-    // },[movieId, movieService]);
+    //     movieService.getOneMovie(movieId)
+    //         .then(result => {
+    //             setMovie(result)
+    //             console.log(comments)
+    //             return commentService.getAllComments(movieId)   
+    //         })
+    //         .then(result => {
+    //             setComments(result)
+    //         })
+    // }, [movieId]);
+
+    useEffect(()=> {
+        Promise.all([
+            movieService.getOneMovie(movieId),
+             commentService.getAllComments(movieId)
+        ])
+            .then(([movieData, comments]) => {
+                setMovie({
+                    ...movieData, 
+                    comments,
+                })
+            });
+    },[movieId]);
 
     const onCommentSubmit = async (e) => {       
         e.preventDefault(); 
@@ -107,13 +107,13 @@ export const Details = ({
             )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {comments.length > 0 && (comments?.map(x=> (
+                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p><b>{x.author.username}</b>: {x.comment}</p>  
                             <hr />    
                         </li>
                     )))}
-                    {comments.length === 0 && (
+                    {movie.comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
                     </ul>
