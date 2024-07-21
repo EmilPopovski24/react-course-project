@@ -18,7 +18,7 @@ export const Details = ({
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
     const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([]);
+    // const [comments, setComments] = useState([]);
     const navigator = useNavigate();
 
     // useEffect(()=> {
@@ -46,6 +46,8 @@ export const Details = ({
             });
     },[movieId]);
 
+    console.log(movie)
+
     const onCommentSubmit = async (e) => {       
         e.preventDefault(); 
         const response = await commentService.createComment({
@@ -54,7 +56,7 @@ export const Details = ({
         });
         setMovie(state => ({
             ...state, 
-            comments: [...comments, response]
+            comments: [...state.comments, response]
         }))  
         
         setComment('')
@@ -107,15 +109,15 @@ export const Details = ({
             )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
+                    {movie.comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
-                            <p><b>{x.author.username}</b>: {x.comment}</p>  
+                            <p>: {x.comment}</p>  
                             <hr />    
                         </li>
-                    )))}
-                    {movie.comments.length === 0 && (
+                    ))}
+                    {/* {movie.comments.length === 0 && (
                         <h5>No comments</h5>
-                    )}
+                    )} */}
                     </ul>
                 {/* <ul className="comments-list">
                     {comments && Object.values(comments).map(x => (
