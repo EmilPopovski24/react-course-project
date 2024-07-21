@@ -53,10 +53,10 @@ export const Details = ({
         });
         setMovie(state => ({
             ...state, 
-            comments: [...comments, response]
+            comments: [...state.comments, response]
         }))  
         
-        // setComment('')
+        setComment('')
     };
 
     const isOwner = movie._ownerId === userId;
@@ -107,23 +107,23 @@ export const Details = ({
                 </div>
             )} */}
             <div className="comments-ul" >                      
-                    {/* <ul className='comments-ul'>  
-                    {movie.comments.length > 0 && (comments?.map(x=> (
+                    <ul className='comments-ul'>  
+                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p>: {x.comment}</p>  
                             <hr />    
                         </li>
-                    ))}
+                    )))}
                     {movie.comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
-                    </ul> */}
-                <ul className="comments-list">
+                    </ul>
+                {/* <ul className="comments-list">
                     {comments && Object.values(comments).map(x => (
                     <li key={x._id} className="comment-li">
                         <p className="comment-text">{x.username}: {x.comment}</p>
                     </li> ))}
-                </ul>
+                </ul> */}
             </div>
          </section>      
     )      
