@@ -37,15 +37,12 @@ export const Details = ({
             movieService.getOneMovie(movieId),
             commentService.getAllComments(movieId)
         ])
-        .then(result => {
-                        setComments(result)
-                    })
-            // .then(([movieData, comments]) => {
-            //     setMovie({
-            //         ...movieData, 
-            //         comments,
-            //     })
-            // });
+            .then(([movieData, comments]) => {
+                setMovie({
+                    ...movieData, 
+                    comments,
+                })
+            });
     },[movieId]);
 
     const onCommentSubmit = async (values) => {       
@@ -64,7 +61,7 @@ export const Details = ({
 
     const isOwner = movie._ownerId === userId;
 
-    // console.log(comments)
+    console.log(movie)
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
