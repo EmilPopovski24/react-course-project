@@ -14,9 +14,9 @@ export const Details = ({
     
     const { userId, isAuthenticated } = useAuthContext();
     const { movieId } = useParams();
-    const [movie, setMovie] = useState({});
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
+    const [movie, setMovie] = useState({});
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const navigator = useNavigate();
