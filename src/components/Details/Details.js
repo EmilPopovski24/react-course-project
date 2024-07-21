@@ -45,8 +45,8 @@ export const Details = ({
     //         });
     // },[movieId]);
 
-    const onCommentSubmit = async (e) => {       
-        e.preventDefault(); 
+    const onCommentSubmit = async (values) => {       
+        // e.preventDefault(); 
         const response = await commentService.createComment({
             movieId, 
             comment
@@ -59,7 +59,6 @@ export const Details = ({
         setComment('')
     };
 
-    console.log(comments)
     const isOwner = movie._ownerId === userId;
 
     const onDeletefunc = async () => {
