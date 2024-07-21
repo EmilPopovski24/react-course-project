@@ -61,7 +61,7 @@ export const Details = ({
 
     const isOwner = movie._ownerId === userId;
 
-    console.log(movie)
+    console.log(comments)
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
