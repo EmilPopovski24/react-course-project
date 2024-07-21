@@ -53,7 +53,7 @@ export const Details = ({
         });
         setMovie(state => ({
             ...state, 
-            comments: [...state.comments, response]
+            comments: [...comments, response]
         }))  
         
         setComment('')
