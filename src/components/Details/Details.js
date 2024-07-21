@@ -37,12 +37,15 @@ export const Details = ({
             movieService.getOneMovie(movieId),
             commentService.getAllComments(movieId)
         ])
-            .then(([movieData, comments]) => {
-                setMovie({
-                    ...movieData, 
-                    comments,
-                })
-            });
+        .then(result => {
+                        setComments(result)
+                    })
+            // .then(([movieData, comments]) => {
+            //     setMovie({
+            //         ...movieData, 
+            //         comments,
+            //     })
+            // });
     },[movieId]);
 
     const onCommentSubmit = async (values) => {       
