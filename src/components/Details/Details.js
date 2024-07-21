@@ -21,29 +21,29 @@ export const Details = ({
     const [comments, setComments] = useState([]);
     const navigator = useNavigate();
 
-    useEffect(()=> {
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result)
-                return commentService.getAllComments(movieId)   
-            })
-            .then(result => {
-                setComments(result)
-            })
-    }, [movieId]);
-
     // useEffect(()=> {
-    //     Promise.all([
-    //         movieService.getOneMovie(movieId),
-    //         commentService.getAllComments(movieId)
-    //     ])
-    //         .then(([movieData, comments]) => {
-    //             setMovie({
-    //                 ...movieData, 
-    //                 comments,
-    //             })
-    //         });
-    // },[movieId]);
+    //     movieService.getOneMovie(movieId)
+    //         .then(result => {
+    //             setMovie(result)
+    //             return commentService.getAllComments(movieId)   
+    //         })
+    //         .then(result => {
+    //             setComments(result)
+    //         })
+    // }, [movieId]);
+
+    useEffect(()=> {
+        Promise.all([
+            movieService.getOneMovie(movieId),
+            commentService.getAllComments(movieId)
+        ])
+            .then(([movieData, comments]) => {
+                setMovie({
+                    ...movieData, 
+                    comments,
+                })
+            });
+    },[movieId]);
 
     const onCommentSubmit = async (values) => {       
         // e.preventDefault(); 
@@ -61,7 +61,7 @@ export const Details = ({
 
     const isOwner = movie._ownerId === userId;
 
-    console.log(comments)
+    // console.log(comments)
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
@@ -107,7 +107,7 @@ export const Details = ({
                 </div>
             )} */}
             <div className="comments-ul" >                      
-                    <ul className='comments-ul'>  
+                    {/* <ul className='comments-ul'>  
                     {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p>: {x.comment}</p>  
@@ -117,13 +117,13 @@ export const Details = ({
                     {comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
-                    </ul>
-                {/* <ul className="comments-list">
+                    </ul> */}
+                <ul className="comments-list">
                     {comments && Object.values(comments).map(x => (
                     <li key={x._id} className="comment-li">
                         <p className="comment-text">{x.username}: {x.comment}</p>
                     </li> ))}
-                </ul> */}
+                </ul>
             </div>
          </section>      
     )      
