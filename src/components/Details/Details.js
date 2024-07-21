@@ -56,10 +56,12 @@ export const Details = ({
             comments: [...comments, response]
         }))  
         
-        setComment('')
+        // setComment('')
     };
 
     const isOwner = movie._ownerId === userId;
+
+    console.log(movie)
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
