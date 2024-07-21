@@ -108,13 +108,13 @@ export const Details = ({
             )} */}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
+                    {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p>: {x.comment}</p>  
                             <hr />    
                         </li>
                     )))}
-                    {movie.comments.length === 0 && (
+                    {comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
                     </ul>
