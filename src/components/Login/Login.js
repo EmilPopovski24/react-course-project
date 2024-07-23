@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import { useForm } from "../../hooks/useForm"
+import { useForm } from "../../hooks/useForm";
+import "./Login.css";
 
 const Loginkeys = {
     Email: 'email',
@@ -20,6 +21,7 @@ export const Login = () => {
 
         <section id="login-page" className="auth">
             <form id="login" onSubmit={onSubmitfunc} method="POST" style={{width:"40%", margin: "80px auto"}} >
+                <h1 className="login-header">Login</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input name={Loginkeys.Email} type="email" className="form-control" id="email" value={values[Loginkeys.Email]} onChange ={changeHandler} aria-describedby="emailHelp" />
