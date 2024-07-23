@@ -7,10 +7,10 @@ export const Account = () => {
     const user = useContext(AuthContext);
 
     return (
-            <div className="accpunt-page">  
-                <h3 className="profile-header">My Account</h3>
+            <div className="account-page">  
+                <h3 className="profile-info">Personal Information</h3>
                 <p>Name: {user.userEmail} </p>
-                <h5 className="profile-info">Personal Information</h5>
+                
             </div>
     )
 }
