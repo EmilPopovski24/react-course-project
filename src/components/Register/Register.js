@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
+import "./Register.css"
 
 export const Register = () => {
     
@@ -29,12 +30,12 @@ export const Register = () => {
                     <input name="confirm-password" value={values["confirm-password"]} onChange={changeHandler} type="password" className="form-control" id="confirm-password" />
                 </div>      
                 <button style={{background:"green", border:"none"}}type="submit" className="btn btn-primary">Register</button>
-            </form>
-            <div className="loginoption">
-                <p className="loginOptionText">
-                    You alrady have a profile? ... Come on... Go to <Link to={"/login"}> Login page </Link>
-                </p>
+                <div className="loginoption">
+                    <p className="loginOptionText">
+                        You already have a profile? ... Come on... Go to <Link to={"/login"}> Login page </Link>
+                    </p>
                 </div>
+            </form>
         </div>
     );
 }
