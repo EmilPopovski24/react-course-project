@@ -31,12 +31,12 @@ export const Login = () => {
                     <input name={Loginkeys.Password} type="password" className="form-control" id="password" value={values[Loginkeys.Password]} onChange ={changeHandler}/>
                 </div>      
                 <button style={{background:"green", border:"none"}} type="submit" className="btn btn-primary">Login</button>
+                <div className="registeroption">
+                    <p className="registerOptionText">
+                        You don't have a profile? ... Come on... Go to <Link to={"/register"}> Register page </Link>
+                    </p>
+                </div>
             </form>
-            <div className="registeroption">
-                <p className="registerOptionText">
-                    You don't have a profile? ... Come on... Go to <Link to={"/register"}> Register page </Link>
-                </p>
-            </div>
         </section>
     )
 } 
