@@ -52,5 +52,3 @@ if(!token) {
     patch: request.bind(null, "PATCH", token),
     }
 }
-
-

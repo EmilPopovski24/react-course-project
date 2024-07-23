@@ -5,7 +5,7 @@ import { movieServiceFactory } from "../../services/movieService"
 import { commentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { AddComment } from './AddComment/AddComment';
+// import { AddComment } from './AddComment/AddComment';
 import "./Details.css";
 
 export const Details = ({
@@ -97,15 +97,15 @@ export const Details = ({
                 )}</div> 
             </div>
             </section>        
-            {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}               
-            {/* {isAuthenticated && (
+            {/* {isAuthenticated && <AddComment onCommentSubmit={onCommentSubmit} />}                */}
+            {isAuthenticated && (
                 <div className="addComment-div">
                     <form className="addComment-form" onSubmit={onCommentSubmit} method="POST">
                         <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
                         <button className='post-btn' type="submit">Add comment</button>
                     </form>
                 </div>
-            )} */}
+            )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
                     {comments.length > 0 && (comments?.map(x=> (
