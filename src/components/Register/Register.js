@@ -33,7 +33,7 @@ export const Register = () => {
                 <button style={{background:"green", border:"none"}}type="submit" className="btn btn-primary">Register</button>
                 <div className="loginoption">
                     <p className="loginOptionText">
-                        You already have a profile? ... Come on... Go to <Link to={"/login"}> Login page </Link>
+                        You already have a profile? ... Come on... Go to the<Link to={"/login"}> Login page </Link>
                     </p>
                 </div>
             </form>

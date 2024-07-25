@@ -33,7 +33,7 @@ export const Login = () => {
                 <button style={{background:"green", border:"none"}} type="submit" className="btn btn-primary">Login</button>
                 <div className="registeroption">
                     <p className="registerOptionText">
-                        You don't have a profile? ... Come on... Go to <Link to={"/register"}> Register page </Link>
+                        You don't have a profile? ... Come on... Go to the<Link to={"/register"}> Register page </Link>
                     </p>
                 </div>
             </form>
