@@ -31,19 +31,6 @@ export const Details = ({
             })
     }, [movieId]);
 
-    // useEffect(()=> {
-    //     Promise.all([
-    //         movieService.getOneMovie(movieId),
-    //         commentService.getAllComments(movieId)
-    //     ])
-    //         .then(([movieData, comments]) => {
-    //             setMovie({
-    //                 ...movieData, 
-    //                 comments,
-    //             })
-    //         });
-    // },[movieId]);
-
     const onCommentSubmit = async (e) => {       
         e.preventDefault(); 
         const response = await commentService.createComment({
