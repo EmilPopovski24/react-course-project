@@ -22,6 +22,6 @@ export const useForm = (initialValues, onSubmitHandler ) => {
         values,
         changeHandler,
         onSubmitfunc,
-        changeValues,
+        changeValues
     };
 }
