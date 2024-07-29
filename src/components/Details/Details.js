@@ -118,7 +118,7 @@ export const Details = ({
                 {/* <ul className="comments-list">
                     {comments && Object.values(comments).map(x => (
                     <li key={x._id} className="comment-li">
-                        <p className="comment-text">{x.username}: {x.comment}</p>
+                        <p className="comment-text">{x.author.username}: {x.comment}</p>
                     </li> ))}
                 </ul> */}
             </div>
