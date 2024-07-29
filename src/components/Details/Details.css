@@ -58,3 +58,7 @@
 .comments-ul {
     float:left;
 }
+
+.comment-li {
+    list-style: none;
+}

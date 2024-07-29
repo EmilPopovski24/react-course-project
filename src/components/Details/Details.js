@@ -70,6 +70,7 @@ export const Details = ({
         navigator('/catalog');
     };
 
+    
     return (
         <section className="main">
             <section className="movie-section">   
@@ -107,8 +108,7 @@ export const Details = ({
                     <ul className='comments-ul'>  
                     {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
-                            <p>{x.author.email}: {x.comment}</p>  
-                            <hr />    
+                            <p><b>{x.author.email}:</b> {x.comment}</p>    
                         </li>
                     )))}
                     {comments.length === 0 && (
