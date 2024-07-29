@@ -102,12 +102,6 @@ export const Details = ({
                         <h5>No comments</h5>
                     )}
                     </ul>
-                {/* <ul className="comments-list">
-                    {comments && Object.values(comments).map(x => (
-                    <li key={x._id} className="comment-li">
-                        <p className="comment-text">{x.author.username}: {x.comment}</p>
-                    </li> ))}
-                </ul> */}
             </div>
          </section>      
     )      
