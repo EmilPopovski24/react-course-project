@@ -7,7 +7,6 @@ export const AddComment = ({
 }) => {
     
     const { values, changeHandler, onSubmitfunc } = useForm({
-        username: {username},
         comment: ''
     }, onCommentSubmit);
 
