@@ -32,7 +32,6 @@ export const movieServiceFactory = (token) => {
         getOneMovie,
         createMovie
     };
-
 }
 
 
