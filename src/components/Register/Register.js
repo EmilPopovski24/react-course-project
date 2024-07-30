@@ -16,7 +16,7 @@ export const Register = () => {
     return(
         <div>
             <form style={{width:"30%", margin: "80px auto"}} id="register-form" onSubmit={onSubmitfunc} method="POST">
-                <h1 className="register-header">Registration form</h1>
+                <h1 className="register-header">Register</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input name="email" value={values.email} onChange={changeHandler} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
