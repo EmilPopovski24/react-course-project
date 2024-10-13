@@ -47,7 +47,6 @@ export const Details = ({
 
     const isOwner = movie._ownerId === userId;
 
-
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
         const result = confirm(`Are you sure you want to delete ${movie.title} from the list?`)
@@ -56,6 +55,10 @@ export const Details = ({
         }
         navigator('/catalog');
     };
+
+    const onMovieRate = async() => {
+
+    }
 
     
     return (
@@ -80,7 +83,20 @@ export const Details = ({
                         <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
                         <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
                     </div>  
-                )}</div> 
+                )}
+                {!isOwner && (
+                    <div className="actions">
+                        <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <li>Home</li>
+    <li>Home</li>
+  </div>
+</div>
+                        {/* <Link to={`/catalog/${movie._id}/rate`}  type="button" className="btn-primary">Rate</Link> */}
+                    </div>
+                )}   
+               </div> 
             </div>
             </section>        
             {isAuthenticated && (
