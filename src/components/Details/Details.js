@@ -86,15 +86,13 @@ export const Details = ({
                 )}
                 {!isOwner && (
                     <div className="actions">
-                        <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <li>Home</li>
-    <li>Home</li>
-  </div>
-</div>
-                        {/* <Link to={`/catalog/${movie._id}/rate`}  type="button" className="btn-primary">Rate</Link> */}
+                        <form className="rate-form" onSubmit={onMovieRate} method="POST">
+                        <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
+                        <button className='post-btn' type="submit">Rate</button>
+                    </form>
+                        
                     </div>
+                    
                 )}   
                </div> 
             </div>
