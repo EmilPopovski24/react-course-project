@@ -36,7 +36,7 @@ export const AddMovie = ({
                 <label htmlFor="coverUrl" className="form-label">Cover URL:</label>
                 <input value={values.coverUrl} onChange={changeHandler} type="coverUrl" name="coverUrl" className="form-control" id="coverUrl" aria-describedby="emailHelp" required/>
             
-                <label htmlFor="summary">Summ ary:</label>
+                <label htmlFor="summary">Summary:</label>
                 <textarea value={values.summary} onChange={changeHandler} className="summary" name="summary" id="summary" required></textarea>
                 
                 <button type="submit" className="btn-primary">Submit</button>
