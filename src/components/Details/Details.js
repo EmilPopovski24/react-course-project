@@ -58,7 +58,8 @@ export const Details = ({
     };
 
     const onMovieRate = async(e) => {
-        e.preventDefault();
+        e.preventDefault()
+        
     }
 
     
@@ -88,8 +89,8 @@ export const Details = ({
                 {!isOwner && (
                     <div className="actions">
                         <h5>Rate the Movie</h5>
-                        <form className="rate-form" onSubmit={onMovieRate} >
-                        <select id="rate" >
+                        <form className="rate-form" onSubmit={onMovieRate} method="POST">
+                        <select id="rate" value={rate} onChange={(e) => setRate(e.target.value)}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
