@@ -18,7 +18,8 @@ export const Details = ({
     const [movie, setMovie] = useState({});
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    const [rate, setRate] = useState(0)
+    const [rate, setRate] = useState(0);
+    const [rates, setRates] = useState([]);
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -59,7 +60,14 @@ export const Details = ({
 
     const onMovieRate = async(e) => {
         e.preventDefault()
-        
+        const response = await movieService.rateMovie({
+            movieId,
+            rate
+        })
+        setMovie( state => ({
+            ...state,
+            rates: [...rates, response]
+        }))
     }
 
     
