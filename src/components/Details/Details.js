@@ -70,6 +70,7 @@ export const Details = ({
         }))
     }
 
+    // console.log(rates)
     
     return (
         <section className="main">
