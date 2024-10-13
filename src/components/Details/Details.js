@@ -18,6 +18,7 @@ export const Details = ({
     const [movie, setMovie] = useState({});
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+    const [rate, setRate] = useState(0)
     const navigator = useNavigate();
 
     useEffect(()=> {
@@ -56,8 +57,8 @@ export const Details = ({
         navigator('/catalog');
     };
 
-    const onMovieRate = async() => {
-
+    const onMovieRate = async(e) => {
+        e.preventDefault();
     }
 
     
@@ -87,7 +88,7 @@ export const Details = ({
                 {!isOwner && (
                     <div className="actions">
                         <h5>Rate the Movie</h5>
-                        <form className="rate-form" onSubmit={onMovieRate} method="POST">
+                        <form className="rate-form" onSubmit={onMovieRate} >
                         <select id="rate" >
                             <option value="1">1</option>
                             <option value="2">2</option>
