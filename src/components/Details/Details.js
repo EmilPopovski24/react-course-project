@@ -86,16 +86,30 @@ export const Details = ({
                 )}
                 {!isOwner && (
                     <div className="actions">
+                        <h5>Rate the Movie</h5>
                         <form className="rate-form" onSubmit={onMovieRate} method="POST">
-                        <textarea name="comment" className='comment-area' id="comment-text" cols="50" rows="3" value={comment} onChange={(e) => setComment(e.target.value) }></textarea>
-                        <button className='post-btn' type="submit">Rate</button>
-                    </form>
-                        
-                    </div>
-                    
+                        <select id="rate" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                            <button className='post-btn' type="submit">Rate</button>
+                        </form>
+                    </div>                   
                 )}   
                </div> 
+               <div className="average-rate">
+                    <b>Average Rate:</b>
+                </div>
             </div>
+            
             </section>        
             {isAuthenticated && (
                 <div className="addComment-div">
