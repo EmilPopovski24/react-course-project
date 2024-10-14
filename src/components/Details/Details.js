@@ -68,6 +68,8 @@ export const Details = ({
             ...state,
             rates: [...rates, response]
         }))
+
+        setRate(0)
     }
 
     console.log(rates)
