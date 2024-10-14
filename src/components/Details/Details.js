@@ -59,7 +59,7 @@ export const Details = ({
     };
 
     const onMovieRate = async(e) => {
-        e.preventDefault()
+        e.preventDefault();
         const response = await movieService.rateMovie({
             movieId,
             rate
@@ -70,7 +70,7 @@ export const Details = ({
         }))
     }
 
-    // console.log(rates)
+    console.log(rates)
     
     return (
         <section className="main">
