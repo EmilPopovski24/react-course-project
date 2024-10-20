@@ -7,3 +7,12 @@
 .registeroption {
     margin-top:20px;
 }
+
+.btn-primary {
+    text-decoration: none;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    border: 1px solid white
+}

@@ -30,7 +30,7 @@ export const Login = () => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input name={Loginkeys.Password} type="password" className="form-control" id="password" value={values[Loginkeys.Password]} onChange ={changeHandler} required/>
                 </div>      
-                <button style={{background:"green", border:"none"}} type="submit" className="btn btn-primary">Login</button>
+                <button style={{background:"green", border:"none"}} type="submit" className="btn-primary">Login</button>
                 <div className="registeroption">
                     <p className="registerOptionText">
                         You don't have a profile? ... Come on... Go to the<Link to={"/register"}> Register page </Link>

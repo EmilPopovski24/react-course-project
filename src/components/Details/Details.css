@@ -63,8 +63,7 @@ body{
         #1845ad,
         #23a2f6
     );
-
-    color: #080710;
+    color: antiquewhite;
 }
 
 .btn-primary:hover {
@@ -86,7 +85,11 @@ body{
 
 .post-btn {
     color:white;
-    background: green;
+    text-decoration: none;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
     border:none;
     border-radius:5px;
     padding:5px 10px;

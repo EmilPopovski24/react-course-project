@@ -17,7 +17,10 @@
 }
 
 .btn-primary {
-    background-color: green;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
     color:white;
     border:none;
     border-radius:5px;
