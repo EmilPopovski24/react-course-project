@@ -113,7 +113,7 @@ export const Details = ({
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                            <button className='post-btn' type="submit">Rate</button>
+                            <button className='post-btn' type="submit" style={{"margin-top":"10px"}}>Rate</button>
                         </form>
                     </div>                   
                 )}   

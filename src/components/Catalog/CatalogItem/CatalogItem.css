@@ -1,6 +1,9 @@
 .details-button {
-    background: green;
-    color:white;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    color: antiquewhite;
     padding: 5px 10px;
     text-decoration: none;
     border:none;
@@ -8,7 +11,11 @@
 }
 
 .details-button:hover {
-    background: blueviolet;
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
 }
 
 .card {

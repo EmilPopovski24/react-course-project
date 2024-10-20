@@ -67,7 +67,11 @@ body{
 }
 
 .btn-primary:hover {
-    background-color: blueviolet;
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
 }
 
 .comments-list {
@@ -97,7 +101,11 @@ body{
 }
 
 .post-btn:hover{
-    background:blueviolet;
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
 }
 
 .comments-ul {
