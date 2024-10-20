@@ -59,6 +59,12 @@ body{
 
 .btn-primary {
     text-decoration: none;
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+
+    color: #080710;
 }
 
 .btn-primary:hover {
