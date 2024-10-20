@@ -72,7 +72,7 @@ export const Details = ({
         // setRate(0)
     }
 
-    console.log(rates)
+    // console.log(rates)
     
     return (
         <section className="main">
