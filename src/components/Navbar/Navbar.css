@@ -1,5 +1,7 @@
 body {
     position:relative;
+    color: #282c34;
+
 }
 
 .username {
@@ -7,3 +9,4 @@ body {
     right:100px;
     top:15px;
 }
+
