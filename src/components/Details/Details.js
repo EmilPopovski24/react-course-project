@@ -50,7 +50,7 @@ export const Details = ({
     const isOwner = movie._ownerId === userId;
 
     const onDeletefunc = async () => {
-        // eslint-disable-next-line no-restricted-globals
+        eslint-disable-next-line no-restricted-globals
         const result = confirm(`Are you sure you want to delete ${movie.title} from the list?`)
         if (result) {
             await deleteMovie(movie._id);
