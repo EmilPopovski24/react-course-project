@@ -30,7 +30,7 @@ export const Register = () => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Confirm Password</label>
                     <input name="confirm-password" value={values["confirm-password"]} onChange={changeHandler} type="password" className="form-control" id="confirm-password" required/>
                 </div>      
-                <button type="submit" className="btn btn-primary">Register</button>
+                <button type="submit" className="btn-primary">Register</button>
                 <div className="loginoption">
                     <p className="loginOptionText">
                         You already have a profile? ... Come on... Go to the<Link to={"/login"}> Login page </Link>
