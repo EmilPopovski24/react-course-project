@@ -2,7 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import "./AddMovie.css";
 
 export const AddMovie = ({
-    onCreateMovieSubmit
+    onCreateMovieSubmit,
 }) => { 
     
     const {values, changeHandler, onSubmitfunc } = useForm({
