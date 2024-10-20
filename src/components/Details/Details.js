@@ -93,8 +93,8 @@ export const Details = ({
                     </div>
                     <div className="actions">
                         {isOwner && (<div className="editdelete">
-                        <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary">Edit</Link>
-                        <button type="button" className="btn-primary" onClick={onDeletefunc}>Delete</button>
+                        <Link to={`/catalog/${movie._id}/edit`}  type="button" className="btn-primary" style={{"marginRight": "10px"}}>Edit</Link>
+                        <button type="button" className="btn-primary" onClick={onDeletefunc} style={{"marginRight": "10px"}}>Delete</button>
                     </div>  
                 )}
                 {!isOwner && (
