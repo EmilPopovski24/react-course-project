@@ -15,7 +15,7 @@ export const Register = () => {
 
     return(
         <div>
-            <form style={{width:"30%", margin: "80px auto"}} id="register-form" onSubmit={onSubmitfunc} method="POST">
+            <form style={{width:"50%", margin: "80px auto"}} id="register-form" onSubmit={onSubmitfunc} method="POST">
                 <h1 className="register-header">Register</h1>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
