@@ -21,6 +21,7 @@ export const AuthProvider = ({
         try {
             const result = await authService.register(data);
             setAuth(result)
+            alert("Successful registration!")
             navigator("/")
         } catch(error) {
             console.log("Incorrect details")
@@ -31,6 +32,7 @@ export const AuthProvider = ({
         try {
              const result = await authService.login(data);
              setAuth(result)
+             alert("You are welcome!")
              navigator("/catalog")
          } catch(error) {
              console.log("Incorrect login details")
