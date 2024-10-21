@@ -45,7 +45,7 @@ function App() {
 
     const deleteMovie = (movieId) => {
         setMovies(state => state.filter(movie => movie._id !== movieId))
-};
+    };
 
   return (
     <AuthProvider>

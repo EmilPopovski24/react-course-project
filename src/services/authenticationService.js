@@ -10,5 +10,4 @@ export const authServiceFactory = (token) => {
         register: (registerData) =>  request.post(`${usersUrl}/register`, registerData),
         logout:() =>  request.get(`${usersUrl}/logout`),
     }
-    
 }
