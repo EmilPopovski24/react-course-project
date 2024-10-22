@@ -9,7 +9,7 @@ export const Account = () => {
     return (
             <div className="account-page">  
                 <h3 className="profile-info">Personal Information</h3>
-                <p>Uername: {user.userEmail} </p>
+                <p>Uername: {user.userEmail.split('@')[0]} </p>
                 <p>Email: {user.userEmail} </p>
             </div>
     )
