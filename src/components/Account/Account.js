@@ -9,8 +9,10 @@ export const Account = () => {
     return (
             <div className="account-page">  
                 <h3 className="profile-info">Personal Information</h3>
-                <p>Uername: {user.userEmail.split('@')[0]} </p>
-                <p>Email: {user.userEmail} </p>
+                <ul>
+                    <li className="account-details">Username: {user.userEmail.split('@')[0]} </li>
+                    <li className="account-details">Email: {user.userEmail} </li>
+                </ul>
             </div>
     )
 }

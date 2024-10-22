@@ -16,7 +16,7 @@ export const AddMovie = ({
 
     return (
         <section id="addMovieSection">
-        <form id="addMovieForm" onSubmit={onSubmitfunc} method="POST" >
+        <form id="addMovieForm" onSubmit={onSubmitfunc} method="POST">
             <div className="container">
 
                 <h3 className="addmovie-header">Add a Movie</h3>

@@ -5,3 +5,7 @@
 .account-page {
     margin:50px;
 }
+
+.account-details {
+    list-style: none;
+}
