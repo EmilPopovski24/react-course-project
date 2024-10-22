@@ -2,7 +2,7 @@ import "./Catalog.css";
 import { CatalogItem } from "./CatalogItem/CatalogItem";
 
 export const Catalog = ({
-    movies
+    movies,
 }) => {
 
     return(
