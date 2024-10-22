@@ -9,7 +9,7 @@ export const CatalogItem = ({
     year,
     genre,
     director,
-    _id
+    _id,
 }) => {
     
     const { isAuthenticated } = useContext(AuthContext);
