@@ -2,7 +2,7 @@ import { requestFactory } from "./requester";
 
 const baseUrl = "http://localhost:3030/data/rates";
 
-export const movieServiceFactory = (token) => {
+export const rateServiceFactory = (token) => {
     const request = requestFactory(token);
 
     const rateMovie = async (rate) => {

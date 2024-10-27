@@ -5,6 +5,7 @@ import { movieServiceFactory } from "../../services/movieService"
 import { commentServiceFactory } from "../../services/commentService"
 import { useService} from "../../hooks/useService";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { rateServiceFactory } from "../../services/rateService";
 import "./Details.css";
 
 export const Details = ({
@@ -15,6 +16,7 @@ export const Details = ({
     const { movieId } = useParams();
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
+    const rateService = useService(rateServiceFactory);
     const [movie, setMovie] = useState({});
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
@@ -60,7 +62,7 @@ export const Details = ({
 
     const onMovieRate = async(e) => {
         e.preventDefault();
-        const response = await movieService.rateMovie({
+        const response = await rateService.rateMovie({
             movieId,
             rate
         })
