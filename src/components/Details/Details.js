@@ -35,12 +35,14 @@ export const Details = ({
             })
     }, [movieId]);
 
-    const onCommentSubmit = async (e) => {       
+    const onCommentSubmit = async (e) => {      
+         
         e.preventDefault(); 
         const response = await commentService.createComment({
             movieId, 
             comment
         });
+
         setMovie(state => ({
             ...state, 
             comments: [...comments, response]
@@ -67,6 +69,7 @@ export const Details = ({
             rate
         })
         console.log(rate)
+
         setMovie( state => ({
             ...state,
             rates: [...rates, response]
