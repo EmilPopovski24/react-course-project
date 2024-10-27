@@ -64,6 +64,7 @@ export const Details = ({
             movieId,
             rate
         })
+        console.log(response)
         setMovie( state => ({
             ...state,
             rates: [...rates, response]
@@ -72,7 +73,7 @@ export const Details = ({
        
     }
 
-    console.log(rates)
+    // console.log(rates)
     
     return (
         <section className="main">
