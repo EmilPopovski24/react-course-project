@@ -26,8 +26,8 @@ export const movieServiceFactory = (token) => {
         return res;
     }
 
-    const rateMovie = async (rate) => {
-        const res = await request.post(baseUrl, rate);
+    const rateMovie = async (rate, movieId) => {
+        const res = await request.post(`${baseUrl}/${movieId}`, rate);
         return res
     }
 
