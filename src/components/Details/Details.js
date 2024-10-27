@@ -32,7 +32,8 @@ export const Details = ({
                 // rateService.getAllRates(movieId)
             })
             .then(result => {
-                setComments(result)
+                setComments(result);
+                setRates(result)
             })
     }, [movieId]);
 
