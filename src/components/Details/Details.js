@@ -28,7 +28,8 @@ export const Details = ({
         movieService.getOneMovie(movieId)
             .then(result => {
                 setMovie(result)
-                return commentService.getAllComments(movieId)   
+                return commentService.getAllComments(movieId)
+                // rateService.getAllRates(movieId)
             })
             .then(result => {
                 setComments(result)
@@ -36,7 +37,7 @@ export const Details = ({
     }, [movieId]);
 
     const onCommentSubmit = async (e) => {      
-         
+
         e.preventDefault(); 
         const response = await commentService.createComment({
             movieId, 
