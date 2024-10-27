@@ -26,23 +26,23 @@ export const movieServiceFactory = (token) => {
         return res;
     }
 
-    // const rateMovie = async (rate) => {
-    //     const res = await request.post(baseUrl, rate);
-    //     return res
-    // }
+    const rateMovie = async (rate) => {
+        const res = await request.post(baseUrl, rate);
+        return res
+    }
 
-    // const getAllRates = async() => {
-    //     const res = await request.get(baseUrl);
-    //     return res
-    // }
+    const getAllRates = async() => {
+        const res = await request.get(baseUrl);
+        return res
+    }
    
     return {
         editMovie,
         getAllMovies,
         getOneMovie,
         createMovie, 
-        // rateMovie,
-        // getAllRates
+        rateMovie,
+        getAllRates
     };
 }
 
