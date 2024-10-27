@@ -71,11 +71,9 @@ export const Details = ({
             ...state,
             rates: [...rates, response]
         }))
-
-       
     }
 
-    // console.log(rates)
+    console.log(movie.rates)
     
     return (
         <section className="main">
