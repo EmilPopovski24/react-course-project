@@ -86,9 +86,7 @@ export const Details = ({
         })
         // console.log(rate)
 
-        setRates( state => ({
-            ...rates, newRate
-        }))
+        setRates( state => ({...rates, newRate}))
         // setMovie( state => ({
         //     ...state,
         //     rates: [...rates, response]
