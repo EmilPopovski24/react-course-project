@@ -86,7 +86,7 @@ export const Details = ({
         })
         // console.log(rate)
 
-        setRates( state => ({...rates, newRate}))
+        setRates( state => ({...state, newRate}))
         // setMovie( state => ({
         //     ...state,
         //     rates: [...rates, response]
@@ -95,7 +95,7 @@ export const Details = ({
 
     }
 
-    console.log(movie.rates)
+    console.log(rates)
     
     return (
         <section className="main">
