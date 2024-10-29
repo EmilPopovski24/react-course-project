@@ -46,7 +46,7 @@ export const Details = ({
             setMovie({
                 ...movieData,
                 comments, 
-                rates
+                rates,
             })
         })
     },[movieId])
