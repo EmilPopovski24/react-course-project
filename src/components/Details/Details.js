@@ -42,7 +42,7 @@ export const Details = ({
             movieService.getOneMovie(movieId),
             commentService.getAllComments(movieId),
             rateService.getAllRates(movieId)
-        ]).then(([movieData, comments]) => {
+        ]).then(([movieData, comments, rates]) => {
             setMovie({
                 ...movieData,
                 comments, 
@@ -84,7 +84,7 @@ export const Details = ({
             movieId,
             rate
         })
-        console.log(rate)
+        // console.log(rate)
 
         setMovie( state => ({
             ...state,
