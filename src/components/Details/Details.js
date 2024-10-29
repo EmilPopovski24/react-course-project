@@ -80,16 +80,19 @@ export const Details = ({
 
     const onMovieRate = async(e) => {
         e.preventDefault();
-        const response = await rateService.rateMovie({
+        const newRate = await rateService.rateMovie({
             movieId,
             rate
         })
         // console.log(rate)
 
-        setMovie( state => ({
-            ...state,
-            rates: [...rates, response]
+        setRates( state => ({
+            ...rates, newRate
         }))
+        // setMovie( state => ({
+        //     ...state,
+        //     rates: [...rates, response]
+        // }))
 
 
     }
