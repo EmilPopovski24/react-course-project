@@ -91,8 +91,14 @@ export const Details = ({
         //     ...state,
         //     rates: [...rates, response]
         // }))
+    }
 
-
+    const averageRate = () => {
+        let sum = 0;
+        rates.forEach((el) => sum += el);
+        const result = sum / rates.length;
+        console.log(result)
+        return result
     }
 
     console.log(rates)
@@ -142,7 +148,8 @@ export const Details = ({
                 )}   
                </div> 
                <div className="average-rate">
-                    <b>Average Rate:</b> 
+                   <p><b>Average Rate:</b> {averageRate}</p>
+                    
                 </div>
             </div>
             
