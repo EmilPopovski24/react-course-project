@@ -90,6 +90,8 @@ export const Details = ({
             ...state,
             rates: [...rates, response]
         }))
+
+
     }
 
     console.log(movie.rates)
@@ -122,16 +124,16 @@ export const Details = ({
                         <h5>Rate the Movie</h5>
                         <form className="rate-form" onSubmit={onMovieRate} method="POST">
                         <select id="rate" value={rate} onChange={(e) => setRate(e.target.value)}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            <option value="1" type="number">1</option>
+                            <option value="2" type="number">2</option>
+                            <option value="3" type="number">3</option>
+                            <option value="4" type="number">4</option>
+                            <option value="5" type="number">5</option>
+                            <option value="6" type="number">6</option>
+                            <option value="7" type="number">7</option>
+                            <option value="8" type="number">8</option>
+                            <option value="9" type="number">9</option>
+                            <option value="10" type="number">10</option>
                         </select>
                             <button className='post-btn' type="submit" style={{"marginTop":"10px"}}>Rate</button>
                         </form>
@@ -139,7 +141,7 @@ export const Details = ({
                 )}   
                </div> 
                <div className="average-rate">
-                    <b>Average Rate:</b>
+                    <b>Average Rate:</b> 
                 </div>
             </div>
             
