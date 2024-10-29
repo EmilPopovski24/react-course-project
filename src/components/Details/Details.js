@@ -70,7 +70,7 @@ export const Details = ({
             movieId,
             rate
         })
-        console.log(rate)
+        // console.log(rate)
 
         setMovie( state => ({
             ...state,
