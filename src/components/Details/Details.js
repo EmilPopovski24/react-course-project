@@ -87,10 +87,10 @@ export const Details = ({
         // console.log(rate)
 
         setRates( state => ({...state, newRate}))
-        setMovie( state => ({
-            ...state,
-            rates: [...rates, response]
-        }))
+        // setMovie( state => ({
+        //     ...state,
+        //     rates: [...rates, response]
+        // }))
 
 
     }
