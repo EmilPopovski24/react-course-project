@@ -24,18 +24,32 @@ export const Details = ({
     const [rates, setRates] = useState([]);
     const navigator = useNavigate();
 
-    useEffect(()=> {
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result)
-                return commentService.getAllComments(movieId)
-                // rateService.getAllRates(movieId)
+    // useEffect(()=> {
+    //     movieService.getOneMovie(movieId)
+    //         .then(result => {
+    //             setMovie(result)
+    //             commentService.getAllComments(movieId)
+    //             rateService.getAllRates(movieId)
+    //         })
+    //         .then(result => {
+    //             setComments(result);
+    //             setRates(result)
+    //         })
+    // }, [movieId]);
+
+    useEffect(() => {
+        Promise.all([
+            movieService.getOneMovie(movieId),
+            commentService.getAllComments(movieId),
+            rateService.getAllRates(movieId)
+        ]).then(([movieData, comments]) => {
+            setMovie({
+                ...movieData,
+                comments, 
+                rates
             })
-            .then(result => {
-                setComments(result);
-                setRates(result)
-            })
-    }, [movieId]);
+        })
+    },[movieId])
 
     const onCommentSubmit = async (e) => {      
 
@@ -70,7 +84,7 @@ export const Details = ({
             movieId,
             rate
         })
-        // console.log(rate)
+        console.log(rate)
 
         setMovie( state => ({
             ...state,
