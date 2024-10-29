@@ -11,8 +11,9 @@ export const rateServiceFactory = (token) => {
     }
 
     const getAllRates = async() => {
-        const res = await request.get(baseUrl);
-        return res
+        const result = await request.get(baseUrl);
+        const rates = Object.values(result);
+        return rates
     }
 
     return {
