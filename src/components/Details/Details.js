@@ -88,11 +88,11 @@ export const Details = ({
         })
         // console.log(rate)
 
-        setRates( state => ({...state, newRate}))
-        // setMovie( state => ({
-        //     ...state,
-        //     rates: [...rates, response]
-        // }))
+        // setRates( state => ({...state, newRate}))
+        setMovie( state => ({
+            ...state,
+            rates: [...rates, newRate]
+        }))
     }
 
     // const averageRate = () => {
