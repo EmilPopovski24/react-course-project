@@ -24,32 +24,34 @@ export const Details = ({
     const [rates, setRates] = useState([]);
     const navigator = useNavigate();
 
-    useEffect(()=> {
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result)
-                return commentService.getAllComments(movieId)
-                // return rateService.getAllRates(movieId)
-            })
-            .then(result => {
-                setComments(result);
-                setRates(result)
-            })
-    }, [movieId]);
-
-    // useEffect(() => {
-    //     Promise.all([
-    //         movieService.getOneMovie(movieId),
-    //         commentService.getAllComments(movieId),
-    //         // rateService.getAllRates(movieId)
-    //     ]).then(([movieData, comments, rates]) => {
-    //         setMovie({
-    //             ...movieData,
-    //             comments, 
-    //             rates,
+    // useEffect(()=> {
+    //     movieService.getOneMovie(movieId)
+    //         .then(result => {
+    //             setMovie(result)
+    //             return {
+    //                 commentService.getAllComments(movieId),
+    //             rateService.getAllRates(movieId)
+    //         }
     //         })
-    //     })
-    // },[movieId])
+    //         .then(result => {
+    //             setComments(result);
+    //             setRates(result)
+    //         })
+    // }, [movieId]);
+
+    useEffect(() => {
+        Promise.all([
+            movieService.getOneMovie(movieId),
+            commentService.getAllComments(movieId),
+            rateService.getAllRates(movieId)
+        ]).then(([movieData, comments, rates]) => {
+            setMovie({
+                ...movieData,
+                comments, 
+                rates,
+            })
+        })
+    },[movieId])
 
     const onCommentSubmit = async (e) => {      
 
@@ -95,13 +97,13 @@ export const Details = ({
 
     const averageRate = () => {
         let sum = 0;
-        rates.forEach((el) => sum += el);
-        const result = sum / rates.length;
-        console.log(result)
+        movie.rates.forEach((el) => sum += el);
+        const result = sum / movie.rates.length;
+        console.log(`average rate - ${result}`)
         return result
     }
 
-    console.log(rates)
+    console.log(movie.rates)
     
     return (
         <section className="main">
