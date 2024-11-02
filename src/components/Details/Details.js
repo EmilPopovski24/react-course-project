@@ -24,18 +24,18 @@ export const Details = ({
     const [rates, setRates] = useState([]);
     const navigator = useNavigate();
 
-    useEffect(()=> {
-        movieService.getOneMovie(movieId)
-            .then(result => {
-                setMovie(result)
-                return commentService.getAllComments(movieId)
-                // rateService.getAllRates(movieId)
-            })
-            .then(result => {
-                setComments(result);
-                setRates(result)
-            })
-    }, [movieId]);
+    // useEffect(()=> {
+    //     movieService.getOneMovie(movieId)
+    //         .then(result => {
+    //             setMovie(result)
+    //             return commentService.getAllComments(movieId)
+    //             // rateService.getAllRates(movieId)
+    //         })
+    //         .then(result => {
+    //             setComments(result);
+    //             setRates(result)
+    //         })
+    // }, [movieId]);
 
     useEffect(() => {
         Promise.all([
@@ -102,6 +102,7 @@ export const Details = ({
     // }
 
     console.log(movie.rates)
+    console.log(movie.comments)
     
     return (
         <section className="main">
@@ -164,10 +165,10 @@ export const Details = ({
             )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {comments.length === 0 && (
+                    {movie.comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
-                    {comments.length > 0 && (comments?.map(x=> (
+                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             <p><b>{x.author.email.split('@')[0]}:</b> {x.comment}</p>
                         </li>
