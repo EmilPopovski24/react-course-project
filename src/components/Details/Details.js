@@ -150,7 +150,7 @@ export const Details = ({
                 )}   
                </div> 
                <div className="average-rate">
-                   <p><b>Average Rate:</b> {averageRate}</p>
+                   <p><b>Average Rate:</b> {averageRate()}</p>
                     
                 </div>
             </div>
