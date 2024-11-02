@@ -95,7 +95,7 @@ export const Details = ({
 
     // const averageRate = () => {
     //     let sum = 0;
-    //     movie.rates.rate.forEach((el) => sum += el);
+    //     movie.rates.forEach((el) => sum += el);
     //     const result = sum / movie.rates.length;
     //     console.log(`average rate - ${result}`)
     //     return result
