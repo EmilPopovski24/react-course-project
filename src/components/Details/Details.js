@@ -24,20 +24,18 @@ export const Details = ({
     const [rates, setRates] = useState([]);
     const navigator = useNavigate();
 
-    // useEffect(()=> {
-    //     movieService.getOneMovie(movieId)
-    //         .then(result => {
-    //             setMovie(result)
-    //             return {
-    //                 commentService.getAllComments(movieId),
-    //             rateService.getAllRates(movieId)
-    //         }
-    //         })
-    //         .then(result => {
-    //             setComments(result);
-    //             setRates(result)
-    //         })
-    // }, [movieId]);
+    useEffect(()=> {
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return commentService.getAllComments(movieId)
+                // rateService.getAllRates(movieId)
+            })
+            .then(result => {
+                setComments(result);
+                setRates(result)
+            })
+    }, [movieId]);
 
     useEffect(() => {
         Promise.all([
@@ -97,7 +95,7 @@ export const Details = ({
 
     // const averageRate = () => {
     //     let sum = 0;
-    //     movie.rates.forEach((el) => sum += el);
+    //     movie.rates.rate.forEach((el) => sum += el);
     //     const result = sum / movie.rates.length;
     //     console.log(`average rate - ${result}`)
     //     return result
