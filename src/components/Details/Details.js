@@ -33,7 +33,7 @@ export const Details = ({
             })
             .then(result => {
                 setMovie(result)
-                rateService.getAllRates(movieId)
+                return rateService.getAllRates(movieId)
             })
             .then(result => {
                 setComments(result);
