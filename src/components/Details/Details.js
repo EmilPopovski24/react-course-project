@@ -47,12 +47,6 @@ export const Details = ({
             commentService.getAllComments(movieId),
             rateService.getAllRates(movieId)
         ])
-        // .then(result => {
-        //     setComments(result);
-        //     setRates(result)
-        // })
-        // }, [movieId]);
-
         .then(([movieData, comments, rates]) => {
             setMovie({
                 ...movieData,
