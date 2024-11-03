@@ -57,7 +57,6 @@ export const Details = ({
     },[movieId])
 
     const onCommentSubmit = async (e) => {      
-
         e.preventDefault(); 
         const response = await commentService.createComment({
             movieId, 
