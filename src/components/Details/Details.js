@@ -32,6 +32,7 @@ export const Details = ({
                 // rateService.getAllRates(movieId)
             })
             .then(result => {
+                setMovie(result)
                 rateService.getAllRates(movieId)
             })
             .then(result => {
@@ -171,7 +172,7 @@ export const Details = ({
                     </form>
                 </div>
             )}
-            <div className="comments-ul" >                      
+            {/* <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
                     {movie.comments.length === 0 && (
                         <h5>No comments</h5>
@@ -182,7 +183,7 @@ export const Details = ({
                         </li>
                     )))}
                  </ul>
-            </div>
+            </div> */}
          </section>      
     )     
 }
