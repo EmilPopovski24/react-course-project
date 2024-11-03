@@ -178,8 +178,7 @@ export const Details = ({
                     )}
                     {movie.comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
-                            <b>{x.author.email.split('@')[0]}:</b>
-                            <p> {x.comment}</p>
+                            <p> <b>{x.author.email.split('@')[0]}:</b> {x.comment} </p>  
                         </li>
                     )))}
                  </ul>
