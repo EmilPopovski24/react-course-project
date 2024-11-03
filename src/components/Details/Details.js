@@ -43,20 +43,20 @@ export const Details = ({
             commentService.getAllComments(movieId),
             rateService.getAllRates(movieId)
         ])
-        .then(result => {
-            setComments(result);
-            setRates(result)
-        })
-        }, [movieId]);
+        // .then(result => {
+        //     setComments(result);
+        //     setRates(result)
+        // })
+        // }, [movieId]);
 
-    //     .then(([movieData, comments, rates]) => {
-    //         setMovie({
-    //             ...movieData,
-    //             comments, 
-    //             rates,
-    //         })
-    //     })
-    // },[movieId])
+        .then(([movieData, comments, rates]) => {
+            setMovie({
+                ...movieData,
+                comments, 
+                rates,
+            })
+        })
+    },[movieId])
 
     const onCommentSubmit = async (e) => {      
 
@@ -170,10 +170,10 @@ export const Details = ({
             )}
             <div className="comments-ul" >                      
                     <ul className='comments-ul'>  
-                    {movie.comments.length === 0 && (
+                    {comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
-                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
+                    {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
                             {/* <b>{x.author.email.split('@')[0]}:</b> */}
                             <p> {x.comment}</p>
