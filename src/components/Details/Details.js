@@ -41,8 +41,7 @@ export const Details = ({
     //         })
     // }, [movieId]);
 
-    useEffect(() => {
-        
+    useEffect(() => {   
         Promise.all([
             movieService.getOneMovie(movieId),
             commentService.getAllComments(movieId),
