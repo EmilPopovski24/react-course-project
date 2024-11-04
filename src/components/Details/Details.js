@@ -45,10 +45,7 @@ export const Details = ({
         
         Promise.all([
             movieService.getOneMovie(movieId),
-            if(movie.comments > 0) {
-                commentService.getAllComments(movieId)
-            }
-            ,
+            commentService.getAllComments(movieId),
             rateService.getAllRates(movieId)
         ])
         .then(([movieData, comments, rates]) => {
