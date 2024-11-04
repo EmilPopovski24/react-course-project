@@ -42,9 +42,13 @@ export const Details = ({
     // }, [movieId]);
 
     useEffect(() => {
+        
         Promise.all([
             movieService.getOneMovie(movieId),
-            commentService.getAllComments(movieId),
+            if(movie.comments > 0) {
+                commentService.getAllComments(movieId)
+            }
+            ,
             rateService.getAllRates(movieId)
         ])
         .then(([movieData, comments, rates]) => {
