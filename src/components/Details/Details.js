@@ -30,14 +30,10 @@ export const Details = ({
             .then(result => {
                 setMovie(result)
                 return (
-                    commentService.getAllComments(movieId),
+                    commentService.getAllComments(movieId), 
                     rateService.getAllRates(movieId)
                 )
             })
-            // .then(result => {
-            //     setMovie(result)
-            //     return rateService.getAllRates(movieId)
-            // })
             .then(result => {
                 setComments(result);
                 setRates(result)
@@ -45,14 +41,11 @@ export const Details = ({
     }, [movieId]);
 
     // useEffect(() => {   
-    //     movieService.getOneMovie(movieId)
-    //     .then( result => {
-    //         setMovie(result)
     //         Promise.all([      
+    //             movieService.getOneMovie(movieId),
     //             commentService.getAllComments(movieId),
-    //             // rateService.getAllRates(movieId)
+    //             rateService.getAllRates(movieId)
     //         ])
-    //     }) 
     //     .then(([movieData, comments, rates]) => {
     //         setMovie({
     //             ...movieData,
@@ -108,7 +101,6 @@ export const Details = ({
     //     console.log(`average rate - ${result}`)
     //     return result
     // }
-
     console.log(rates)
     console.log(comments)
     
