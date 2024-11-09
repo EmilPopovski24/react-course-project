@@ -20,7 +20,7 @@ export const rateServiceFactory = (token) => {
 
     return {
         rateMovie,
-        getAllRates
+        getAllRates,
     }
 
 }
