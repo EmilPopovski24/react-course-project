@@ -23,14 +23,7 @@ export const Details = ({
     const [rate, setRate] = useState(0);
     const [rates, setRates] = useState([]);
     const navigator = useNavigate();
-    const allCommentsAndRates = () =>
-        {
-            return (
-                commentService.getAllComments(movieId),
-                rateService.getAllRates(movieId)
-            )
-        
-    }
+
 
     useEffect(()=> {
         movieService.getOneMovie(movieId)
@@ -116,8 +109,8 @@ export const Details = ({
     //     return result
     // }
 
-    console.log(movie.rates)
-    console.log(movie.comments)
+    console.log(rates)
+    console.log(comments)
     
     return (
         <section className="main">
@@ -179,13 +172,13 @@ export const Details = ({
                 </div>
             )}
             <div className="comments-ul" >                                    
-                    {movie.comments.length === 0 && (
+                    {comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
                     <ul className='comments-ul'>  
-                    {movie.comments.length > 0 && (movie.comments?.map(x=> (
+                    {comments.length > 0 && (comments?.map(x=> (
                         <li key={x._id} className='comment-li'>
-                            {/* <b>{x.author.email.split('@')[0]}:</b>  */}
+                           {/* <b>{x.author.email.split('@')[0]}:</b>  */}
                             <p>  {x.comment} </p>  
                         </li>
                     )))}
