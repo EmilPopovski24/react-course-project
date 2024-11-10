@@ -101,7 +101,7 @@ export const Details = ({
     //     console.log(`average rate - ${result}`)
     //     return result
     // }
-    console.log(rates)
+    
     console.log(comments)
     
     return (
