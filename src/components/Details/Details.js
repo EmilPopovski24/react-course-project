@@ -25,35 +25,35 @@ export const Details = ({
     const navigator = useNavigate();
 
 
-    // useEffect(()=> {
-    //     movieService.getOneMovie(movieId)
-    //         .then(result => {
-    //             setMovie(result)
-    //             return (
-    //                 commentService.getAllComments(movieId), 
-    //                 rateService.getAllRates(movieId)
-    //             )
-    //         })
-    //         .then(result => {
-    //             setComments(result);
-    //             setRates(result)
-    //         })
-    // }, [movieId]);
-
-    useEffect(() => {   
-            Promise.all([      
-                movieService.getOneMovie(movieId),
-                commentService.getAllComments(movieId),
-                rateService.getAllRates(movieId),
-            ])
-        .then(([movieData, comments, rates]) => {
-            setMovie({
-                ...movieData,
-                comments, 
-                rates,
+    useEffect(()=> {
+        movieService.getOneMovie(movieId)
+            .then(result => {
+                setMovie(result)
+                return (
+                    commentService.getAllComments(movieId), 
+                    rateService.getAllRates(movieId)
+                )
             })
-        })
-    },[movieId])
+            .then(result => {
+                setComments(result);
+                setRates(result)
+            })
+    }, [movieId]);
+
+    // useEffect(() => {   
+    //         Promise.all([      
+    //             movieService.getOneMovie(movieId),
+    //             commentService.getAllComments(movieId),
+    //             rateService.getAllRates(movieId),
+    //         ])
+    //     .then(([movieData, comments, rates]) => {
+    //         setMovie({
+    //             ...movieData,
+    //             comments, 
+    //             rates,
+    //         })
+    //     })
+    // },[movieId])
 
     const onCommentSubmit = async (e) => {      
         e.preventDefault(); 
