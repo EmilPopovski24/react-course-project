@@ -35,7 +35,6 @@ export const AuthProvider = ({
              alert("You are welcome!")
              navigator("/catalog")
          } catch(error) {
-             console.log("Incorrect login details")
              alert("Incorrect login details")
          }    
      };
