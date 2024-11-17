@@ -13,7 +13,7 @@ export const rateServiceFactory = (token) => {
     const getAllRates = async(movieId) => {
         const query = encodeURIComponent(`movieId="${movieId}"`)
         const author = encodeURIComponent(`author=_ownerId:users`);
-        const result = await request.get(`${baseUrl}/?where=${query}&load=${author}`);
+        const result = await request.get(`${baseUrl}?where=${query}&load=${author}`);
         const rates = Object.values(result)
         return rates;
     }
