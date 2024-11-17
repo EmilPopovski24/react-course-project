@@ -24,7 +24,7 @@ export const AuthProvider = ({
             alert("Successful registration!")
             navigator("/")
         } catch(error) {
-            console.log("Incorrect details")
+            alert("Incorrect details")
         }    
     }
 
