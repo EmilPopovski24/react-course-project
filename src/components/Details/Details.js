@@ -12,7 +12,7 @@ export const Details = ({
     deleteMovie
 }) => {
     
-    const { userId, isAuthenticated } = useAuthContext();
+    const { userId, isAuthenticated, username } = useAuthContext();
     const { movieId } = useParams();
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
@@ -64,7 +64,13 @@ export const Details = ({
 
         setMovie(state => ({
             ...state, 
-            comments: [...comments, response]
+            comments: [...comments, {
+                ...response,
+                author:{
+                    username,
+                }
+            }]
+
         }))  
         
         setComment('')
@@ -163,17 +169,16 @@ export const Details = ({
                     </form>
                 </div>
             )}
-            <div className="comments-ul" >                                    
+            <div className="comments-ul" >  
+                <ul className='comments-ul'>  
+                    {comments.length > 0 && (movie.comments?.map(x=> (
+                        <li key={x._id} className='comment-li'>
+                           <p><b>{x.author.email.split('@')[0]}:</b>  {x.comment} </p>    
+                        </li>
+                    )))}                                  
                     {comments.length === 0 && (
                         <h5>No comments</h5>
                     )}
-                    <ul className='comments-ul'>  
-                    {comments.length > 0 && (movie.comments?.map(x=> (
-                        <li key={x._id} className='comment-li'>
-                           {/* <b>{x.author.email.split('@')[0]}:</b>  */}
-                            <p>  {x.comment} </p>  
-                        </li>
-                    )))}
                  </ul>
             </div>
          </section>      
