@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { movieServiceFactory } from "../../services/movieService"
 import { commentServiceFactory } from "../../services/commentService"
 import { useService } from "../../hooks/useService";
-import { useAuthContext } from "../../contexts/AuthContext";
+import { AuthContext, useAuthContext } from "../../contexts/AuthContext";
 import { rateServiceFactory } from "../../services/rateService";
 import "./Details.css";
 
@@ -12,7 +12,7 @@ export const Details = ({
     deleteMovie
 }) => {
     
-    const { userId, isAuthenticated, username } = useAuthContext();
+    const { userId, isAuthenticated, username } = useAuthContext(AuthContext);
     const { movieId } = useParams();
     const movieService = useService(movieServiceFactory);
     const commentService = useService(commentServiceFactory);
@@ -76,6 +76,7 @@ export const Details = ({
     };
 
     const isOwner = movie._ownerId === userId;
+    console.log(username)
 
     const onDeletefunc = async () => {
         // eslint-disable-next-line no-restricted-globals
