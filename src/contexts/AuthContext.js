@@ -6,8 +6,9 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({
-    children,
+    children
 }) => {
+    
     const [auth, setAuth] = useLocalStorage('auth', {});
     const authService = authServiceFactory(auth.accessToken);
     const navigator = useNavigate();
